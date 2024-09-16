@@ -30,6 +30,7 @@ export default function AppRoutes() {
           )}
 
           <Route path="*" element={<ErrorPage />} />
+          {/* test */}
         </Routes>
       </ScrollToTop>
     </>
