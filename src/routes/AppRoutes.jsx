@@ -5,6 +5,7 @@ import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import useAuth from "../services/context/useAuth";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import MainLayout from "../layouts/MainLayout/MainLayout";
+import LandingPage from "../pages/LandingPage/LandingPage";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -16,7 +17,7 @@ export default function AppRoutes() {
           {!auth?.role ? (
             <>
               <Route path="/" element={<MainLayout />}>
-                <Route index element={<div>Not thing here!</div>} />
+                <Route index element={<LandingPage />} />
               </Route>
             </>
           ) : !auth?.role === "Admin" ? (
@@ -30,7 +31,6 @@ export default function AppRoutes() {
           )}
 
           <Route path="*" element={<ErrorPage />} />
-          {/* test */}
         </Routes>
       </ScrollToTop>
     </>
