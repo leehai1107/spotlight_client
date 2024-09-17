@@ -28,10 +28,11 @@ export default function AppRoutes() {
           ) : (
             <></>
           )}
-
+            {/* 123345 */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ScrollToTop>
     </>
   );
+
 }
