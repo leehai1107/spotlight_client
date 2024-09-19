@@ -1751,6 +1751,94 @@ body {
   color: var(--main-color);
 }
 
+/* General switch styling */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 28.5rem;
+  /* Adjust the width to fit both labels */
+  height: 2.5rem;
+  /* Adjust the height for larger labels */
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: #f0f0f0;
+  overflow: hidden;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #f0f0f0;
+  transition: 0.4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  padding: 0 5rem;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 2.125rem;
+  width: 14.75rem;
+  /* Width to cover half of the switch */
+  left: 4px;
+  bottom: 3px;
+  background-color: var(--main-color);
+  /* Background for the active side */
+  border-radius: 50px;
+  transition: 0.4s;
+}
+
+input:checked+.slider:before {
+  transform: translateX(13.125rem);
+  /* Move the slider to the right */
+}
+
+input:checked+.slider {
+  background-color: #f0f0f0;
+}
+
+input:checked+.slider .option-left {
+  color: black;
+  /* Change active text color */
+}
+
+input:not(:checked)+.slider .option-right {
+  color: black;
+}
+
+input:checked+.slider .option-right {
+  color: black;
+  /* Text color for inactive */
+}
+
+.option-left,
+.option-right {
+  position: relative;
+  z-index: 1;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 34px;
+}
+
+
 .field-password {
   position: relative;
 }
