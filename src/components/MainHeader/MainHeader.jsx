@@ -1,8 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function MainHeader() {
   const navigate = useNavigate();
+  const [isNightMode, setIsNightMode] = useState(false);
+
+  // Load the night mode state from localStorage on mount
+  useEffect(() => {
+    const nightMode = localStorage.getItem("gmtNightMode");
+    if (nightMode) {
+      setIsNightMode(true);
+      document.documentElement.classList.add("night-mode");
+    }
+  }, []);
+
+  // Handle night mode toggle
+  const handleToggleNightMode = () => {
+    const newNightMode = !isNightMode;
+    setIsNightMode(newNightMode);
+    if (newNightMode) {
+      document.documentElement.classList.add("night-mode");
+      localStorage.setItem("gmtNightMode", "true");
+    } else {
+      document.documentElement.classList.remove("night-mode");
+      localStorage.removeItem("gmtNightMode");
+    }
+  };
 
   const handleClickLogo = () => {
     navigate("/");
@@ -21,7 +44,7 @@ export default function MainHeader() {
               aria-controls="offcanvasNavbar"
             >
               <span className="navbar-toggler-icon">
-                <i className="fa-solid fa-bars" />
+                <i className="fa-solid" />
               </span>
             </button>
 
@@ -146,6 +169,15 @@ export default function MainHeader() {
                   <Link to="/signin" className="create-btn btn-hover">
                     <strong>ĐĂNG NHẬP ĐỂ TỎA SÁNG</strong>
                   </Link>
+                </li>
+                <li>
+                  <div className="night_mode_switch__btn">
+                    <div
+                      id="night-mode"
+                      className={`fas ${isNightMode ? "fa-moon" : "fa-sun"}`}
+                      onClick={handleToggleNightMode}
+                    ></div>
+                  </div>
                 </li>
               </ul>
             </div>

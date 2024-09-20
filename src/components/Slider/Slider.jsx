@@ -18,11 +18,14 @@ const responsive = {
 };
 
 const Slider = ({
-  items,
-  autoplayTimeout,
-  loop,
-  margin,
-  smartSpeed,
+  items = [],
+  autoplayTimeout = 3000,
+  loop = true,
+  margin = 10,
+  smartSpeed = 700,
+  isBanner,
+  isAchievements,
+  isFeatures,
 }) => {
   return (
     <div>
@@ -41,44 +44,43 @@ const Slider = ({
         pullDrag={false} // Disable pull drag
         freeDrag={false}
       >
-        {items.map((item, index) => (
-          <div className="item" key={index}>
-            <div className="main-card">
-              <div className="host-item">
-                <div className="host-img">
-                  <img src={item.image} alt={item.altText} />
+        {isFeatures &&
+          items.map((item, index) => (
+            <div className="item" key={index}>
+              <div className="main-card">
+                <div className="host-item">
+                  <div className="host-img">
+                    <img src={item.image} alt={item.altText} />
+                  </div>
+                  <h4>{item.title}</h4>
+                  <p>{item.description}</p>
                 </div>
-                <h4>{item.title}</h4>
-                <p>{item.description}</p>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        {isAchievements &&
+          items.map((item, index) => (
+            <div className="item" key={index}>
+              <div className="sponsor">
+                <a href={item.link}>
+                  <img src={item.image} alt={item.altText} />
+                </a>
+              </div>
+            </div>
+          ))}
+        {isBanner &&
+          items.map((item, index) => (
+            <div className="item" key={index}>
+              <div className="slider-container">
+                <a href={item.link}>
+                  <img src={item.image} alt={item.altText} />
+                </a>
+              </div>
+            </div>
+          ))}
       </OwlCarousel>
     </div>
   );
-};
-
-Slider.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.shape({
-      image: PropTypes.string.isRequired,
-      altText: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    })
-  ).isRequired,
-  autoplayTimeout: PropTypes.number,
-  loop: PropTypes.bool,
-  margin: PropTypes.number,
-  smartSpeed: PropTypes.number,
-};
-
-Slider.defaultProps = {
-  autoplayTimeout: 3000,
-  loop: true,
-  margin: 10,
-  smartSpeed: 700,
 };
 
 export default Slider;

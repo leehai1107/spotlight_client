@@ -4,22 +4,22 @@ import Item from "../Item/Item";
 
 export default function ItemList() {
   return (
-    <div class="explore-events p-80">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-12 col-lg-12 col-md-12">
-            <div class="main-title">
+    <div className="explore-events p-80">
+      <div className="container">
+        <div className="row">
+          <div className="col-xl-12 col-lg-12 col-md-12">
+            <div className="main-title">
               <h3>Sản Phẩm Nổi Bật</h3>
             </div>
           </div>
-          <div class="col-xl-12 col-lg-12 col-md-12">
-            <div class="event-filter-items">
-              <div class="featured-controls">
+          <div className="col-xl-12 col-lg-12 col-md-12">
+            <div className="event-filter-items">
+              <div className="featured-controls">
                 <ItemTag />
               </div>
             </div>
           </div>
-          <div class="row" data-ref="event-filter-content">
+          <div className="row" data-ref="event-filter-content">
             <Item />
             <Item />
             <Item />
@@ -28,8 +28,8 @@ export default function ItemList() {
             <Item />
             <Item />
             <Item />
-            <div class="browse-btn mt-5">
-              <a href="explore_events.html" class="main-btn btn-hover ">
+            <div className="browse-btn mt-5">
+              <a href="explore_events.html" className="main-btn btn-hover ">
                 Xem Thêm
               </a>
             </div>
