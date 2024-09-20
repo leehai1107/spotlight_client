@@ -44,7 +44,9 @@ export default function MainHeader() {
               aria-controls="offcanvasNavbar"
             >
               <span className="navbar-toggler-icon">
-                <i className="fa-solid" />
+                <i
+                  className={`fa-${isNightMode ? "solid fa-bars" : "solid"}`}
+                />
               </span>
             </button>
 
