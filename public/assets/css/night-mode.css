@@ -28,6 +28,10 @@ Night Mood
     color: #6F767E !important;
 }
 
+.night-mode ::placeholder {
+    color: white !important;
+}
+
 .night-mode body {
     background: #111315 !important;
     height: auto;

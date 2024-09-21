@@ -50,7 +50,9 @@ function SignInPage() {
       <div className="app-form">
         <div className="app-form-sidebar">
           <div className="sidebar-sign-logo">
-            <img src="./assets/images/logo.svg" alt="Logo" />
+            <a href={"/"}>
+              <img src="./assets/images/logo.svg" alt="Logo" />
+            </a>
           </div>
           <div className="sign_sidebar_text">
             <h1>
@@ -65,7 +67,7 @@ function SignInPage() {
             <div className="row justify-content-center">
               <div className="col-lg-10 col-md-10">
                 <div className="app-top-items">
-                  <a href="/">
+                  <a href={"/"}>
                     <div className="sign-logo" id="logo">
                       <img src="./assets/images/logo.svg" alt="Logo" />
                       <img
@@ -92,7 +94,9 @@ function SignInPage() {
                     <div className="row mt-3">
                       <div className="col-lg-12 col-md-12">
                         <div className="form-group mt-4">
-                          <label className="form-label">Email hoặc Tên Đăng Nhập*</label>
+                          <label className="form-label">
+                            Email hoặc Tên Đăng Nhập*
+                          </label>
                           <input
                             className="form-control h_50"
                             type="text"
