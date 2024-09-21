@@ -7,6 +7,7 @@ import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import LandingPage from "../pages/LandingPage/LandingPage";
 import BlankLayout from "../layouts/BlankLayout/BlankLayout";
+import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 
 export default function AppRoutes() {
