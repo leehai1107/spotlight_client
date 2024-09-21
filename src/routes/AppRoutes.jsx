@@ -9,6 +9,8 @@ import LandingPage from "../pages/LandingPage/LandingPage";
 import BlankLayout from "../layouts/BlankLayout/BlankLayout";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
+import ManagerLayout from "../layouts/ManagerLayout/ManagerLayout";
+import ShopOwnerPage from "../pages/ShopOwnerPage/ShopOwnerPage";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -26,6 +28,9 @@ export default function AppRoutes() {
               {/* <BlankLayout /> for signup and signin because no need header or footer */}
               <Route path="/" element={<BlankLayout />}>
                 <Route path="signup" element={<SignUpPage />} />
+              </Route>
+              <Route path="/" element={<ManagerLayout />}>
+                <Route path="manager" element={<ShopOwnerPage />} />
               </Route>
             </>
           ) : !auth?.role === "Admin" ? (
