@@ -24,23 +24,7 @@ export default function MainHeader() {
                 <i className="fa-solid fa-bars" />
               </span>
             </button>
-            <a
-              className="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto"
-              href="/"
-              onClick={(e) => e.preventDefault() || handleClickLogo()}
-            >
-              <div className="main-logo" id="logo">
-                <img
-                  src="https://firebasestorage.googleapis.com/v0/b/feventopia-app.appspot.com/o/logo%2Flogo.svg?alt=media&token=6e50aaa8-2c91-4596-9b11-e407bb6694e3"
-                  alt="Logo"
-                />
-                <img
-                  className="logo-inverse"
-                  src="./assets/images/dark-logo.svg"
-                  alt="Logo"
-                />
-              </div>
-            </a>
+
             <div
               className="offcanvas offcanvas-start"
               tabIndex={-1}
@@ -48,9 +32,6 @@ export default function MainHeader() {
               aria-labelledby="offcanvasNavbarLabel"
             >
               <div className="offcanvas-header">
-                <div className="offcanvas-logo" id="offcanvasNavbarLabel">
-                  <img src="./assets/images/logo-icon.svg" alt="Logo" />
-                </div>
                 <button
                   type="button"
                   className="close-btn"
@@ -62,16 +43,6 @@ export default function MainHeader() {
                 </button>
               </div>
               <div className="offcanvas-body">
-                <div className="offcanvas-top-area">
-                  <div className="create-bg">
-                    <a href="/explored" className="offcanvas-create-btn">
-                      <i className="fa-solid fa-calendar-days" />
-                      <span>
-                        <strong>MUA VÉ NGAY</strong>
-                      </span>
-                    </a>
-                  </div>
-                </div>
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe_5">
                   <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="/">
@@ -84,7 +55,7 @@ export default function MainHeader() {
                       aria-current="page"
                       href="/explored"
                     >
-                      <strong>TÌM KIẾM SỰ KIỆN</strong>
+                      <strong>TÌM KIẾM SẢN PHẨM</strong>
                     </a>
                   </li>
                   <li className="nav-item dropdown">
@@ -100,7 +71,7 @@ export default function MainHeader() {
                     <ul className="dropdown-menu dropdown-submenu">
                       <li>
                         <a className="dropdown-item" href="our_blog.html">
-                          SỰ KIỆN THÚ VỊ
+                          SẢN PHẨM THÚ VỊ
                         </a>
                       </li>
                       <li>
@@ -136,7 +107,7 @@ export default function MainHeader() {
                       </li>
                       <li>
                         <a className="dropdown-item" href="/Contact">
-                          LIÊN HỆ FEVENTOPIA
+                          LIÊN HỆ SPOTLIGHT
                         </a>
                       </li>
                     </ul>
@@ -151,26 +122,10 @@ export default function MainHeader() {
                   <ul className="social-links">
                     <li>
                       <a
-                        href="https://www.facebook.com/FPTU.HCM/"
+                        href="https://www.facebook.com/profile.php?id=61566215480958"
                         className="social-link"
                       >
                         <i className="fab fa-facebook-square" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.instagram.com/fptuniversityhcm/"
-                        className="social-link"
-                      >
-                        <i className="fab fa-instagram" />
-                      </a>
-                    </li>
-                    <li>
-                      <a
-                        href="https://www.youtube.com/channel/UCfNrlxNgcTZDJ3jZeSSSJxg"
-                        className="social-link"
-                      >
-                        <i className="fab fa-youtube" />
                       </a>
                     </li>
                   </ul>
@@ -183,85 +138,19 @@ export default function MainHeader() {
                   <a href="/explored" className="create-btn btn-hover">
                     <i className="fa-solid fa-calendar-days" />
                     <span>
-                      <strong>MUA VÉ NGAY</strong>
+                      <strong>MUA NGAY</strong>
                     </span>
                   </a>
                 </li>
-                {token ? (
-                  <li className="dropdown account-dropdown">
-                    <a
-                      href="#"
-                      className="account-link"
-                      role="button"
-                      id="accountClick"
-                      data-bs-auto-close="outside"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <img
-                        src={
-                          profile?.avatar ||
-                          "https://firebasestorage.googleapis.com/v0/b/feventopia-app.appspot.com/o/avatars%2Flogo-fav.png?alt=media&token=1e771f4e-1d95-4b9a-a133-76bab5aad662"
-                        }
-                        alt="User Avatar"
-                      />
-                      <i className="fas fa-caret-down arrow-icon" />
-                    </a>
-                    <ul
-                      className="dropdown-menu dropdown-menu-account dropdown-menu-end"
-                      aria-labelledby="accountClick"
-                    >
-                      <li>
-                        <div className="dropdown-account-header">
-                          <div className="account-holder-avatar">
-                            <img
-                              src={
-                                profile?.avatar ||
-                                "https://firebasestorage.googleapis.com/v0/b/feventopia-app.appspot.com/o/avatars%2Flogo-fav.png?alt=media&token=1e771f4e-1d95-4b9a-a133-76bab5aad662"
-                              }
-                              alt="User Avatar"
-                            />
-                          </div>
-                        </div>
-                      </li>
-                      <li className="profile-link">
-                        <Link
-                          to="/userprofile?activeTab=orders"
-                          className="link-item"
-                        >
-                          Vé đã mua
-                        </Link>
-                        <Link
-                          to={
-                            profile?.role === "SPONSOR"
-                              ? "/sponsorProfile"
-                              : "/userprofile"
-                          }
-                          className="link-item"
-                        >
-                          Trang cá nhân
-                        </Link>
-                        <button
-                          className="link-item"
-                          onClick={handleLogoutClick}
-                        >
-                          Đăng xuất
-                        </button>
-                      </li>
-                    </ul>
-                  </li>
-                ) : (
-                  <li>
-                    <Link to="/signin" className="create-btn btn-hover">
-                      <strong>ĐĂNG NHẬP</strong>
-                    </Link>
-                  </li>
-                )}
+                <li>
+                  <Link to="/signin" className="create-btn btn-hover">
+                    <strong>ĐĂNG NHẬP ĐỂ TỎA SÁNG</strong>
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
         </nav>
-        <div className="overlay" />
       </div>
     </header>
   );
