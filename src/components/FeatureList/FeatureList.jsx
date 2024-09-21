@@ -21,6 +21,7 @@ export default function FeatureList() {
                 loop={true}
                 margin={10}
                 smartSpeed={700}
+                isFeatures={true}
               />
             </div>
           </div>

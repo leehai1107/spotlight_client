@@ -1,11 +1,15 @@
 /****************
 Night Mood
 ****************/
+:root {
+    --main-color: #ff7f50;
+    --blackground-color: #450b00;
+}
 
 .night-mode #night-mode {
     padding: 0;
     font-size: 15px;
-    background: #6ac045;
+    background: var(--main-color);
     color: #fff;
     cursor: pointer;
     border-radius: 50%;
@@ -18,15 +22,15 @@ Night Mood
     content: "\f186";
 }
 
-.night-mode html , 
-.night-mode body  {
+.night-mode html,
+.night-mode body {
     background-color: #111315 !important;
     color: #6F767E !important;
 }
 
 .night-mode body {
     background: #111315 !important;
-	height: auto;
+    height: auto;
     float: left;
     width: 100%;
 }
@@ -51,8 +55,8 @@ Night Mood
     border: 4px solid transparent;
     background-clip: padding-box;
     -webkit-border-radius: 7px;
-    background-color: rgba(51,51,51,.6);
-    -webkit-box-shadow: inset -1px -1px 0 rgba(51,51,51,.05), inset 1px 1px 0 rgba(51,51,51,.05);
+    background-color: rgba(51, 51, 51, .6);
+    -webkit-box-shadow: inset -1px -1px 0 rgba(51, 51, 51, .05), inset 1px 1px 0 rgba(51, 51, 51, .05);
 }
 
 .night-mode h1,
@@ -82,7 +86,7 @@ Night Mood
 
 .night-mode .nav-link {
     color: #6F767E !important;
-	font-weight: 500;
+    font-weight: 500;
 }
 
 .night-mode .nav-link:hover {
@@ -143,11 +147,11 @@ Night Mood
     background-color: #1A1D1F;
 }
 
-.night-mode .event-content > .event-title {
+.night-mode .event-content>.event-title {
     color: #fff;
 }
 
-.night-mode .event-content > .event-title:hover {
+.night-mode .event-content>.event-title:hover {
     color: #fff !important;
 }
 
@@ -160,18 +164,18 @@ Night Mood
 }
 
 .night-mode .control {
-	color: #6F767E;
+    color: #6F767E;
     background: #272B30;
 }
 
 .night-mode .mixitup-control-active {
-	color: #fff !important;
+    color: #fff !important;
 }
 
 .night-mode .mixitup-control-active[data-filter]:after {
     background: transparent;
-	border-bottom: 3px solid #fff;
-	color: #fff;
+    border-bottom: 3px solid #fff;
+    color: #fff;
 }
 
 .night-mode .event-timing {
@@ -195,17 +199,17 @@ Night Mood
 }
 
 .night-mode .owl-nav .owl-prev:hover {
-	color: #fff !important;
-	opacity: 1;
-	background: #6ac045 !important;
-	border: 1px solid #6ac045 !important;
-}	
+    color: #fff !important;
+    opacity: 1;
+    background: var(--main-color) !important;
+    border: 1px solid var(--main-color) !important;
+}
 
 .night-mode .owl-nav .owl-next:hover {
-	color: #fff !important;
-	opacity: 1;
-	border: 1px solid #6ac045 !important;
-	background: #6ac045 !important;
+    color: #fff !important;
+    opacity: 1;
+    border: 1px solid var(--main-color) !important;
+    background: var(--main-color) !important;
 }
 
 .night-mode .feature-group-list {
@@ -235,7 +239,7 @@ Night Mood
 
 .night-mode .step-tabs .step-link.active:hover {
     color: #fff;
-    background-color: #6ac045;
+    background-color: var(--main-color);
 }
 
 .night-mode .testimonial-slider-area {
@@ -260,13 +264,13 @@ Night Mood
 }
 
 .night-mode .dropdown-submenu .dropdown-item:hover {
-	color: #fff !important;
-	background-color: transparent !important;
+    color: #fff !important;
+    background-color: transparent !important;
 }
 
 .night-mode .dropdown-submenu .dropdown-item:focus {
-	color: #fff !important;
-	background-color: transparent;
+    color: #fff !important;
+    background-color: transparent;
 }
 
 .night-mode .dropdown-menu-account li .link-item {
@@ -274,8 +278,8 @@ Night Mood
 }
 
 .night-mode .dropdown-menu-account li .link-item:hover {
-	color: #fff !important;
-	background-color: transparent !important;
+    color: #fff !important;
+    background-color: transparent !important;
 }
 
 .night-mode .profile-link {
@@ -390,7 +394,7 @@ Night Mood
 
 .night-mode .follow-btn:hover {
     color: #fcfcfc !important;
-	border: 1px solid #efefef !important;
+    border: 1px solid #efefef !important;
 }
 
 .night-mode .modal-header {
@@ -421,8 +425,8 @@ Night Mood
 
 .night-mode .form-control:focus {
     color: #fcfcfc !important;
-    background-color: #000  !important;
-    border: 1px solid #6ac045 !important;
+    background-color: #000 !important;
+    border: 1px solid var(--main-color) !important;
 }
 
 .night-mode .form-textarea {
@@ -433,8 +437,8 @@ Night Mood
 
 .night-mode .form-textarea:focus {
     color: #fcfcfc !important;
-    background-color: #000  !important;
-    border: 1px solid #6ac045 !important;
+    background-color: #000 !important;
+    border: 1px solid var(--main-color) !important;
 }
 
 .night-mode .border_bottom {
@@ -460,7 +464,7 @@ Night Mood
 
 .night-mode .cb-icon:hover {
     color: #fff !important;
-    background: #6ac045;
+    background: var(--main-color);
 }
 
 .night-mode .booking-confirmed-bottom-bg {
@@ -516,21 +520,21 @@ Night Mood
 
 .night-mode .bootstrap-select .dropdown-item.active:hover {
     color: #FCFCFC !important;
-    background: #6ac045 !important;
+    background: var(--main-color) !important;
 }
 
 .night-mode .bootstrap-select.dropdown-item.active, .night-mode .bootstrap-select .dropdown-item:active {
     color: #fff !important;
     text-decoration: none;
-    background-color: #6ac045 !important;
+    background-color: var(--main-color) !important;
 }
 
 .night-mode .main-form .bootstrap-select .dropdown-toggle:focus, .night-mode .main-form .bootstrap-select>select.mobile-device:focus+.dropdown-toggle {
     outline: none !important;
     outline: none !important;
     outline-offset: -2px;
-	border-color: #a2ff7a !important;
-	box-shadow: none !important;
+    border-color: #a2ff7a !important;
+    box-shadow: none !important;
 }
 
 .night-mode .ttl-clr {
@@ -544,16 +548,16 @@ Night Mood
 
 .night-mode .user-avatar-img img {
     background: #272b30;
-    border: 2px solid #6ac045;
+    border: 2px solid var(--main-color);
 }
 
 .night-mode .account-holder-avatar img {
     background-color: #272b30;
-    border: 2px solid #6ac045;
+    border: 2px solid var(--main-color);
 }
 
 .night-mode .account-link.show img {
-    border: 2px solid #6ac045;
+    border: 2px solid var(--main-color);
 }
 
 .night-mode .coming-soon-content {
@@ -573,35 +577,35 @@ Night Mood
     background: #272b30;
 }
 
-.night-mode #add-event-tab .step-steps > li:before {
+.night-mode #add-event-tab .step-steps>li:before {
     background-color: #272b30;
 }
 
-.night-mode #add-event-tab .step-steps > li > a > .number {
+.night-mode #add-event-tab .step-steps>li>a>.number {
     background-color: #272b30;
 }
 
-.night-mode #add-event-tab .step-steps > li > a > .number:before {
+.night-mode #add-event-tab .step-steps>li>a>.number:before {
     background-color: rgba(39, 43, 48, 0.3);
 }
 
-.night-mode #add-event-tab .step-steps > li.active > a > .number,
-.night-mode #add-event-tab .step-steps > li.done > a > .number {
-	background-color: #6ac045;
+.night-mode #add-event-tab .step-steps>li.active>a>.number,
+.night-mode #add-event-tab .step-steps>li.done>a>.number {
+    background-color: var(--main-color);
 
 }
 
-.night-mode #add-event-tab .step-steps > li.active > a > .number:before,
-.night-mode #add-event-tab .step-steps > li.done > a > .number:before {
-	background-color: rgba(106, 192, 69, 0.3);
+.night-mode #add-event-tab .step-steps>li.active>a>.number:before,
+.night-mode #add-event-tab .step-steps>li.done>a>.number:before {
+    background-color: rgba(106, 192, 69, 0.3);
 }
 
-.night-mode #add-event-tab .step-steps > li.done:before {
-    background-color: #6ac045;
+.night-mode #add-event-tab .step-steps>li.done:before {
+    background-color: var(--main-color);
 }
 
-.night-mode #add-event-tab .step-steps > li.active > a > .step-name, 
-.night-mode #add-eventevent-tab .step-steps > li.done > a > .step-name {
+.night-mode #add-event-tab .step-steps>li.active>a>.step-name,
+.night-mode #add-eventevent-tab .step-steps>li.done>a>.step-name {
     color: #fff;
 }
 
@@ -619,7 +623,7 @@ Night Mood
 
 .night-mode .ck.ck-editor__main>.ck-editor__editable:focus {
     border-color: #272b30 !important;
-	background: #000;
+    background: #000;
 }
 
 
@@ -629,7 +633,7 @@ Night Mood
 }
 
 .night-mode .ck.ck-editor__main>.ck-editor__editable p {
-	color: #fcfcfc;
+    color: #fcfcfc;
 }
 
 
@@ -648,7 +652,7 @@ Night Mood
 }
 
 .night-mode .datepicker--nav-title:hover {
-	background: #272B30;
+    background: #272B30;
 }
 
 .night-mode .datepicker--pointer {
@@ -687,8 +691,8 @@ Night Mood
 }
 
 .night-mode .dropdown-item:hover {
-	color: #fff !important;
-	background-color: transparent !important;
+    color: #fff !important;
+    background-color: transparent !important;
 }
 
 .night-mode .option-btn-1 {
@@ -762,7 +766,7 @@ Night Mood
 }
 
 .night-mode .help-item-link {
-	color: #fcfcfc;
+    color: #fcfcfc;
     border-bottom: 1px solid #272B30;
 }
 
@@ -771,7 +775,7 @@ Night Mood
 }
 
 .night-mode .hero-banner-content .form-control {
-	background-color: #111315 !important;
+    background-color: #111315 !important;
     border: 1px solid #111315;
 }
 
@@ -845,13 +849,14 @@ Night Mood
 }
 
 .night-mode .ct-grid {
-    stroke: rgba(255,255,255,.2) !important;
+    stroke: rgba(255, 255, 255, .2) !important;
 }
 
 .night-mode .btn-light {
     color: #fcfcfc !important;
     background-color: #272b30 !important;
-    border: 1px solid #272b30 !important;;
+    border: 1px solid #272b30 !important;
+    ;
 }
 
 .night-mode .menu--link.active {
@@ -869,12 +874,12 @@ Night Mood
 }
 
 .night-mode .menu--link:hover, .night-mode .menu--link:hover .menu--label {
-	color:#fcfcfc;
-	background: transparent;
+    color: #fcfcfc;
+    background: transparent;
 }
 
 .night-mode .sub_menu--link .menu--icon:hover {
-	color: #fff !important;
+    color: #fff !important;
 }
 
 .night-mode .custom2-tabs .tab-link {
@@ -890,15 +895,15 @@ Night Mood
 }
 
 .night-mode .custom2-tabs .tab-link:hover {
-	color: #fcfcfc;
+    color: #fcfcfc;
     background-color: #272b30;
-	border: 1px solid #efefef;
+    border: 1px solid #efefef;
 }
 
 .night-mode .custom2-tabs .tab-link.active, .night-mode .tab-tabs .show>.tab-link {
     color: #fff;
-    background-color: #6ac045;
-	border: 1px solid #6ac045;
+    background-color: var(--main-color);
+    border: 1px solid var(--main-color);
 }
 
 .night-mode .custom2-tabs .tab-link.active span, .night-mode .tab-tabs .show>.tab-link span {
@@ -1000,8 +1005,8 @@ Night Mood
 }
 
 .night-mode .tracking-tab .nav-tabs .nav-link.active {
-    background-color: #6ac045;
-	color: #fff !important;
+    background-color: var(--main-color);
+    color: #fff !important;
 }
 
 .night-mode .specific-event {
@@ -1065,15 +1070,15 @@ Night Mood
 }
 
 .night-mode .my-event-tabs .event-link.active:hover {
-    color: #6ac045;
+    color: var(--main-color);
     background-color: #1a1d1f;
-    border-bottom: 3px solid #6ac045;
+    border-bottom: 3px solid var(--main-color);
 }
 
 .night-mode .my-event-tabs .event-link.active, .night-mode .my-event-tabs .show>.event-link {
-    color: #6ac045;
+    color: var(--main-color);
     background-color: #1a1d1f;
-    border-bottom: 3px solid #6ac045;
+    border-bottom: 3px solid var(--main-color);
 }
 
 .night-mode .event-link span {
@@ -1110,15 +1115,15 @@ Night Mood
 }
 
 .night-mode .custom-tabs .tab-link.active, .tab-tabs .show>.tab-link {
-    color: #6ac045;
+    color: var(--main-color);
     background-color: #1a1d1f;
-	border-bottom: 3px solid #6ac045;
+    border-bottom: 3px solid var(--main-color);
 }
 
 .night-mode .custom-tabs .tab-link:hover {
-	color: #fff;
+    color: #fff;
     background-color: #1a1d1f;
-	border-bottom: 3px solid transparent;
+    border-bottom: 3px solid transparent;
 }
 
 
@@ -1127,9 +1132,9 @@ Night Mood
 }
 
 .night-mode .custom-tabs .tab-link.active:hover {
-    color: #6ac045;
+    color: var(--main-color);
     background-color: #1a1d1f;
-	border-bottom: 3px solid #6ac045;
+    border-bottom: 3px solid var(--main-color);
 }
 
 .night-mode .flex-slide .right h3 {
@@ -1154,17 +1159,17 @@ Night Mood
 }
 
 .night-mode .divider:before {
-    background: rgba(112,112,112,0.4);
+    background: rgba(112, 112, 112, 0.4);
 }
 
 .night-mode .social-login-btn {
-	color: #fcfcfc;
+    color: #fcfcfc;
     border: 1px solid #272b30;
     background: #272b30;
 }
 
 .night-mode .social-login-btn:hover {
-	color: #fcfcfc;
+    color: #fcfcfc;
     border: 1px solid #efefef;
     background: #272b30;
 }
@@ -1206,8 +1211,8 @@ Night Mood
 
 .night-mode .counter span:hover {
     color: #fff;
-    background: #6ac045;
-    border: 2px solid #6ac045;
+    background: var(--main-color);
+    border: 2px solid var(--main-color);
 }
 
 .night-mode .xtotel-tickets-count {
@@ -1239,19 +1244,19 @@ Night Mood
     color: #a2a2a2;
 }
 
-.night-mode #option-1:checked:checked ~ .option-1, 
-.night-mode #option-2:checked:checked ~ .option-2 {
-    border: 2px solid #6ac045;
+.night-mode #option-1:checked:checked~.option-1,
+.night-mode #option-2:checked:checked~.option-2 {
+    border: 2px solid var(--main-color);
     background: #1a1d1f;
 }
 
-.night-mode #option-1:checked:checked ~ .option-1 span,
-.night-mode #option-2:checked:checked ~ .option-2 span {
+.night-mode #option-1:checked:checked~.option-1 span,
+.night-mode #option-2:checked:checked~.option-2 span {
     color: #fff;
 }
 
-.night-mode #option-1:checked:checked ~ .option-1 span:last-child, 
-.night-mode #option-2:checked:checked ~ .option-2 span:last-child {
+.night-mode #option-1:checked:checked~.option-1 span:last-child,
+.night-mode #option-2:checked:checked~.option-2 span:last-child {
     color: #a2a2a2;
 }
 
@@ -1270,8 +1275,8 @@ Night Mood
     background: #272B30;
 }
 
-.night-mode .featured-controls input:checked + span {
-	background: #272B30;
+.night-mode .featured-controls input:checked+span {
+    background: #272B30;
     color: #fff !important
 }
 
@@ -1286,7 +1291,7 @@ Night Mood
 
 .night-mode .role-header span {
     color: #a2a2a2;
-} 
+}
 
 .night-mode .role-item span {
     color: #fff;
@@ -1294,100 +1299,90 @@ Night Mood
 
 .night-mode .i-disabled {
     color: #fff !important;
-    background: rgba(255,255,255,0.1) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
 }
 
-.night-mode {
-    
-}
+.night-mode {}
 
-.night-mode {
-    
-}
+.night-mode {}
 
-.night-mode {
-    
-}
+.night-mode {}
 
-.night-mode {
-    
-}
+.night-mode {}
 
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
-.night-mode .create-bg {
-    background-color: #272B30;
-}
+    .night-mode .create-bg {
+        background-color: #272B30;
+    }
 
-.night-mode .offcanvas-header {
-    border: 1px solid #272B30;
-}
+    .night-mode .offcanvas-header {
+        border: 1px solid #272B30;
+    }
 
-.night-mode .navbar-nav .nav-link:hover {
-    background-color: #1A1D1F;
-}
+    .night-mode .navbar-nav .nav-link:hover {
+        background-color: #1A1D1F;
+    }
 
-.night-mode .dropdown-menu {
-    background-color: #111315 !important;
-    border: 1px solid transparent !important;
-}
+    .night-mode .dropdown-menu {
+        background-color: #111315 !important;
+        border: 1px solid transparent !important;
+    }
 
-.night-mode .offcanvas-footer {
-    border-top: 1px solid #272B30;
-}
+    .night-mode .offcanvas-footer {
+        border-top: 1px solid #272B30;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-.night-mode .create-bg {
-    background-color: #272B30;
-}
+    .night-mode .create-bg {
+        background-color: #272B30;
+    }
 
-.night-mode .offcanvas-header {
-    border: 1px solid #272B30;
-}
+    .night-mode .offcanvas-header {
+        border: 1px solid #272B30;
+    }
 
-.night-mode .navbar-nav .nav-link:hover {
-    background-color: #1A1D1F;
-}
+    .night-mode .navbar-nav .nav-link:hover {
+        background-color: #1A1D1F;
+    }
 
-.night-mode .dropdown-menu {
-    background-color: #111315 !important;
-    border: 1px solid transparent !important;
-}
+    .night-mode .dropdown-menu {
+        background-color: #111315 !important;
+        border: 1px solid transparent !important;
+    }
 
-.night-mode .offcanvas-footer {
-    border-top: 1px solid #272B30;
-}
+    .night-mode .offcanvas-footer {
+        border-top: 1px solid #272B30;
+    }
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-.night-mode .create-bg {
-    background-color: #272B30;
-}
+    .night-mode .create-bg {
+        background-color: #272B30;
+    }
 
-.night-mode .offcanvas-header {
-    border: 1px solid #272B30;
-}
+    .night-mode .offcanvas-header {
+        border: 1px solid #272B30;
+    }
 
-.night-mode .navbar-nav .nav-link:hover {
-    background-color: #1A1D1F;	
-}
+    .night-mode .navbar-nav .nav-link:hover {
+        background-color: #1A1D1F;
+    }
 
-.night-mode .dropdown-menu {
-    background-color: #111315 !important;
-    border: 1px solid transparent !important;
-}
+    .night-mode .dropdown-menu {
+        background-color: #111315 !important;
+        border: 1px solid transparent !important;
+    }
 
-.night-mode .offcanvas-footer {
-    border-top: 1px solid #272B30;
-}
+    .night-mode .offcanvas-footer {
+        border-top: 1px solid #272B30;
+    }
 }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {
-	
-}
+@media (min-width: 992px) and (max-width: 1199.98px) {}
 }
