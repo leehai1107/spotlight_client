@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import useAuth from "../services/context/useAuth";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -37,7 +36,6 @@ export default function AppRoutes() {
           ) : (
             <></>
           )}
-          {/* 123345 */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ScrollToTop>
