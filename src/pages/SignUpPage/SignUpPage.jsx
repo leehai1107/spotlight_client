@@ -114,7 +114,9 @@ function SignUpPage() {
       <div className="app-form">
         <div className="app-form-sidebar">
           <div className="sidebar-sign-logo">
-            <img src="./assets/images/logo.svg" alt="Logo" />
+            <a href={"/"}>
+              <img src="./assets/images/logo.svg" alt="Logo" />
+            </a>
           </div>
           <div className="sign_sidebar_text">
             <h1>
@@ -129,7 +131,7 @@ function SignUpPage() {
             <div className="row justify-content-center">
               <div className="col-lg-10 col-md-10">
                 <div className="app-top-items">
-                  <a href="/">
+                  <a href={"/"}>
                     <div className="sign-logo" id="logo">
                       <img src="./assets/images/logo.svg" alt="Logo" />
                       <img

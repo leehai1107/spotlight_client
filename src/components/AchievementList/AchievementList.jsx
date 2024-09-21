@@ -20,6 +20,7 @@ export default function AchievementList() {
                 loop={true}
                 margin={25}
                 smartSpeed={700}
+                isAchievements={true}
               />
             </div>
           </div>

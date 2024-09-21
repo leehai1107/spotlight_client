@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ItemTag() {
   return (
-    <div class="filter-tag">
+    <div className="filter-tag">
       <a href="explore_events_by_date.html" className="active">
         Tất cả
       </a>
