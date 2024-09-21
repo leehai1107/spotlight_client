@@ -25,6 +25,7 @@ export default function AppRoutes() {
               {/* <BlankLayout /> for signup and signin because no need header or footer */}
               <Route path="/" element={<BlankLayout />}>
                 <Route path="signup" element={<SignUpPage />} />
+                <Route path="signin" element={<SignInPage />} />
               </Route>
             </>
           ) : !auth?.role === "Admin" ? (
@@ -36,11 +37,10 @@ export default function AppRoutes() {
           ) : (
             <></>
           )}
-            {/* 123345 */}
+          {/* 123345 */}
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </ScrollToTop>
     </>
   );
-
 }
