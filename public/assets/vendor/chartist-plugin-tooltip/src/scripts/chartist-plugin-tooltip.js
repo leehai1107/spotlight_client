@@ -4,8 +4,6 @@
  */
 /* global Chartist */
 (function (window, document, Chartist) {
-  'use strict';
-
   var defaultOptions = {
     currency: undefined,
     currencyFormatCallback: undefined,
@@ -16,7 +14,7 @@
     anchorToPoint: false,
     appendToBody: true,
     class: undefined,
-    pointClass: 'ct-point',
+    pointClass: "ct-point",
   };
 
   Chartist.plugins = Chartist.plugins || {};
@@ -27,14 +25,16 @@
       // Warning: If you are using npm link or yarn link, these instanceof checks will fail and you won't any tooltips
       var tooltipSelector = options.pointClass;
       if (chart instanceof Chartist.Bar) {
-        tooltipSelector = 'ct-bar';
+        tooltipSelector = "ct-bar";
       } else if (chart instanceof Chartist.Pie) {
         // Added support for donut graph
         if (chart.options.donut) {
           // Added support for the solid donut graph
-          tooltipSelector = chart.options.donutSolid ? 'ct-slice-donut-solid' : 'ct-slice-donut';
+          tooltipSelector = chart.options.donutSolid
+            ? "ct-slice-donut-solid"
+            : "ct-slice-donut";
         } else {
-          tooltipSelector = 'ct-slice-pie';
+          tooltipSelector = "ct-slice-pie";
         }
       }
 
@@ -45,14 +45,16 @@
 
       if (!options.appendToBody) {
         // searching for existing tooltip in the chart, because appendToBody is disabled
-        $toolTip = $chart.querySelector('.chartist-tooltip');
+        $toolTip = $chart.querySelector(".chartist-tooltip");
       } else {
         // searching for existing tooltip in the body, because appendToBody is enabled
-        $toolTip = document.querySelector('.chartist-tooltip');
+        $toolTip = document.querySelector(".chartist-tooltip");
       }
       if (!$toolTip) {
-        $toolTip = document.createElement('div');
-        $toolTip.className = (!options.class) ? 'chartist-tooltip' : 'chartist-tooltip ' + options.class;
+        $toolTip = document.createElement("div");
+        $toolTip.className = !options.class
+          ? "chartist-tooltip"
+          : "chartist-tooltip " + options.class;
         if (!options.appendToBody) {
           $chart.appendChild($toolTip);
         } else {
@@ -66,45 +68,51 @@
 
       function on(event, selector, callback) {
         $chart.addEventListener(event, function (e) {
-          if (!selector || hasClass(e.target, selector))
-            callback(e);
+          if (!selector || hasClass(e.target, selector)) callback(e);
         });
       }
 
-      on('mouseover', tooltipSelector, function (event) {
+      on("mouseover", tooltipSelector, function (event) {
         var $point = event.target;
-        var tooltipText = '';
+        var tooltipText = "";
 
-        var isPieChart = (chart instanceof Chartist.Pie) ? $point : $point.parentNode;
-        var seriesName = (isPieChart) ? $point.parentNode.getAttribute('ct:meta') || $point.parentNode.getAttribute('ct:series-name') : '';
-        var meta = $point.getAttribute('ct:meta') || seriesName || '';
+        var isPieChart =
+          chart instanceof Chartist.Pie ? $point : $point.parentNode;
+        var seriesName = isPieChart
+          ? $point.parentNode.getAttribute("ct:meta") ||
+            $point.parentNode.getAttribute("ct:series-name")
+          : "";
+        var meta = $point.getAttribute("ct:meta") || seriesName || "";
         var hasMeta = !!meta;
-        var value = $point.getAttribute('ct:value');
+        var value = $point.getAttribute("ct:value");
 
-        if (options.transformTooltipTextFnc && typeof options.transformTooltipTextFnc === 'function') {
+        if (
+          options.transformTooltipTextFnc &&
+          typeof options.transformTooltipTextFnc === "function"
+        ) {
           value = options.transformTooltipTextFnc(value);
         }
 
-        if (options.tooltipFnc && typeof options.tooltipFnc === 'function') {
+        if (options.tooltipFnc && typeof options.tooltipFnc === "function") {
           tooltipText = options.tooltipFnc(meta, value);
         } else {
           if (options.metaIsHTML) {
-            var txt = document.createElement('textarea');
+            var txt = document.createElement("textarea");
             txt.innerHTML = meta;
             meta = txt.value;
           }
 
-          meta = '<span class="chartist-tooltip-meta">' + meta + '</span>';
+          meta = '<span class="chartist-tooltip-meta">' + meta + "</span>";
 
           if (hasMeta) {
-            tooltipText += meta + '<br>';
+            tooltipText += meta + "<br>";
           } else {
             // For Pie Charts also take the labels into account
             // Could add support for more charts here as well!
             if (chart instanceof Chartist.Pie) {
-              var label = next($point, 'ct-label');
+              var label = next($point, "ct-label");
               if (label) {
-                tooltipText += text(label) + '<br>';
+                tooltipText += text(label) + "<br>";
               }
             }
           }
@@ -114,10 +122,12 @@
               if (options.currencyFormatCallback != undefined) {
                 value = options.currencyFormatCallback(value, options);
               } else {
-                value = options.currency + value.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,');
+                value =
+                  options.currency +
+                  value.replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,");
               }
             }
-            value = '<span class="chartist-tooltip-value">' + value + '</span>';
+            value = '<span class="chartist-tooltip-value">' + value + "</span>";
             tooltipText += value;
           }
         }
@@ -132,8 +142,8 @@
           if (options.appendToBody !== true) {
             $tooltipOffsetParent = offsetParent($chart);
           }
-          if ($toolTip.style.display !== 'absolute') {
-            $toolTip.style.display = 'absolute';
+          if ($toolTip.style.display !== "absolute") {
+            $toolTip.style.display = "absolute";
           }
           setPosition(event);
           show($toolTip);
@@ -144,11 +154,11 @@
         }
       });
 
-      on('mouseout', tooltipSelector, function () {
+      on("mouseout", tooltipSelector, function () {
         hide($toolTip);
       });
 
-      on('mousemove', null, function (event) {
+      on("mousemove", null, function (event) {
         if (options.anchorToPoint === false && $toolTipIsShown) {
           setPosition(event);
         }
@@ -160,19 +170,22 @@
         var offsetX = -width / 2 + options.tooltipOffset.x;
         var offsetY = -height + options.tooltipOffset.y;
 
-        var anchor = options.anchorToPoint === true && event.target.x2 && event.target.y2;
+        var anchor =
+          options.anchorToPoint === true && event.target.x2 && event.target.y2;
 
         if (options.appendToBody === true) {
           if (anchor) {
             var box = $chart.getBoundingClientRect();
-            var left = event.target.x2.baseVal.value + box.left + window.pageXOffset;
-            var top = event.target.y2.baseVal.value + box.top + window.pageYOffset;
+            var left =
+              event.target.x2.baseVal.value + box.left + window.pageXOffset;
+            var top =
+              event.target.y2.baseVal.value + box.top + window.pageYOffset;
 
-            $toolTip.style.left = left + offsetX + 'px';
-            $toolTip.style.top = top + offsetY + 'px';
+            $toolTip.style.left = left + offsetX + "px";
+            $toolTip.style.top = top + offsetY + "px";
           } else {
-            $toolTip.style.left = event.pageX + offsetX + 'px';
-            $toolTip.style.top = event.pageY + offsetY + 'px';
+            $toolTip.style.left = event.pageX + offsetX + "px";
+            $toolTip.style.top = event.pageY + offsetY + "px";
           }
         } else {
           var offsetBox = $tooltipOffsetParent.getBoundingClientRect();
@@ -181,14 +194,16 @@
 
           if (anchor) {
             var box = $chart.getBoundingClientRect();
-            var left = event.target.x2.baseVal.value + box.left + window.pageXOffset;
-            var top = event.target.y2.baseVal.value + box.top + window.pageYOffset;
+            var left =
+              event.target.x2.baseVal.value + box.left + window.pageXOffset;
+            var top =
+              event.target.y2.baseVal.value + box.top + window.pageYOffset;
 
-            $toolTip.style.left = left + allOffsetLeft + 'px';
-            $toolTip.style.top = top + allOffsetTop + 'px';
+            $toolTip.style.left = left + allOffsetLeft + "px";
+            $toolTip.style.top = top + allOffsetTop + "px";
           } else {
-            $toolTip.style.left = event.pageX + allOffsetLeft + 'px';
-            $toolTip.style.top = event.pageY + allOffsetTop + 'px';
+            $toolTip.style.left = event.pageX + allOffsetLeft + "px";
+            $toolTip.style.top = event.pageY + allOffsetTop + "px";
           }
         }
       }
@@ -199,8 +214,8 @@
        */
       function show(element) {
         $toolTipIsShown = true;
-        if (!hasClass(element, 'tooltip-show')) {
-          element.className = element.className + ' tooltip-show';
+        if (!hasClass(element, "tooltip-show")) {
+          element.className = element.className + " tooltip-show";
         }
       }
 
@@ -210,10 +225,9 @@
        */
       function hide(element) {
         $toolTipIsShown = false;
-        var regex = new RegExp('tooltip-show' + '\\s*', 'gi');
-        element.className = element.className.replace(regex, '').trim();
+        var regex = new RegExp("tooltip-show" + "\\s*", "gi");
+        element.className = element.className.replace(regex, "").trim();
       }
-
     };
   };
 
@@ -224,7 +238,11 @@
    * @return {boolean}
    */
   function hasClass(element, className) {
-    return (' ' + element.getAttribute('class') + ' ').indexOf(' ' + className + ' ') > -1;
+    return (
+      (" " + element.getAttribute("class") + " ").indexOf(
+        " " + className + " "
+      ) > -1
+    );
   }
 
   function next(element, className) {
@@ -264,13 +282,12 @@
       return document.body.parentElement;
     }
 
-    if (window.getComputedStyle(parent).position !== 'static') {
+    if (window.getComputedStyle(parent).position !== "static") {
       return parent;
-    } else if (parent.tagName === 'BODY') {
+    } else if (parent.tagName === "BODY") {
       return parent.parentElement;
     } else {
       return offsetParent(parent);
     }
   }
-
-}(window, document, Chartist));
+})(window, document, Chartist);

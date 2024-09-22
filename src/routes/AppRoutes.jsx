@@ -19,7 +19,7 @@ export default function AppRoutes() {
     <>
       <ScrollToTop>
         <Routes>
-          {!auth?.role ? (
+          {!auth?.role_id ? (
             <>
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
@@ -30,16 +30,29 @@ export default function AppRoutes() {
                 <Route path="signup" element={<SignUpPage />} />
                 <Route path="signin" element={<SignInPage />} />
               </Route>
+            </>
+          ) : auth?.role_id === 1 ? (
+            // Admin
+            <>
               <Route path="/" element={<ManagerLayout />}>
                 <Route path="manager" element={<ShopOwnerPage />} />
               </Route>
             </>
-          ) : !auth?.role === "Admin" ? (
-            <></>
-          ) : !auth?.role === "User" ? (
-            <></>
-          ) : !auth?.role === "Provider" ? (
-            <></>
+          ) : auth?.role_id === 2 ? (
+            // Shop Owner
+            <>
+              <Route path="/" element={<ManagerLayout />}>
+                <Route path="manager" element={<ShopOwnerPage />} />
+              </Route>
+            </>
+          ) : auth?.role_id === 3 ? (
+            // Customer
+            <>
+              <Route path="/" element={<MainLayout />}>
+                <Route index element={<LandingPage />} />
+                <Route path="about_us" element={<AboutUsPage />} />
+              </Route>
+            </>
           ) : (
             <></>
           )}

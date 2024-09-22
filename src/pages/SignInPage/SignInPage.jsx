@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import { loginAPI } from "../../apis/user";
 import { useNavigate } from "react-router-dom";
 
 function SignInPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [formData, setFormData] = useState({
-    emailOrUsername: "",
+    Username: "",
     password: "",
   });
   const [errors, setErrors] = useState({});
@@ -20,8 +21,8 @@ function SignInPage() {
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.emailOrUsername) {
-      newErrors.emailOrUsername = "Email hoặc Tên đăng nhập là bắt buộc";
+    if (!formData.Username) {
+      newErrors.Username = "Tên đăng nhập là bắt buộc";
     }
 
     if (!formData.password) {
@@ -39,6 +40,12 @@ function SignInPage() {
       return;
     }
     // Handle form submission logic here
+    const res = await loginAPI(formData.Username, formData.password);
+    // save {res} to local storage
+    if (res) {
+      localStorage.setItem("token", JSON.stringify(res));
+      window.location.href = "/";
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -94,20 +101,18 @@ function SignInPage() {
                     <div className="row mt-3">
                       <div className="col-lg-12 col-md-12">
                         <div className="form-group mt-4">
-                          <label className="form-label">
-                            Email hoặc Tên Đăng Nhập*
-                          </label>
+                          <label className="form-label">Tên Đăng Nhập*</label>
                           <input
                             className="form-control h_50"
                             type="text"
-                            name="emailOrUsername"
-                            placeholder="Nhập Email hoặc Tên Đăng Nhập"
-                            value={formData.emailOrUsername}
+                            name="Username"
+                            placeholder="Nhập Tên Đăng Nhập"
+                            value={formData.Username}
                             onChange={handleChange}
                           />
-                          {errors.emailOrUsername && (
+                          {errors.Username && (
                             <small className="text-danger">
-                              {errors.emailOrUsername}
+                              {errors.Username}
                             </small>
                           )}
                         </div>

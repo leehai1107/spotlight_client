@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import DropdownProfile from "../DropdownProfile/DropdownProfile";
 
 export default function MainHeader() {
+  const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [isNightMode, setIsNightMode] = useState(false);
 
@@ -68,6 +70,17 @@ export default function MainHeader() {
                 </button>
               </div>
               <div className="offcanvas-body">
+                {!token ? (
+                  <div className="offcanvas-top-area">
+                    <div className="create-bg">
+                      <a href={"/signin"} className="offcanvas-create-btn">
+                        <span>ĐĂNG NHẬP ĐỂ TỎA SÁNG</span>
+                      </a>
+                    </div>
+                  </div>
+                ) : (
+                  <></>
+                )}
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe_5">
                   <li className="nav-item">
                     <a className="nav-link" aria-current="page" href="/">
@@ -167,10 +180,23 @@ export default function MainHeader() {
                     </span>
                   </a>
                 </li>
+                {!token ? (
+                  <li>
+                    <Link to="/signin" className="create-btn btn-hover">
+                      <strong>ĐĂNG NHẬP ĐỂ TỎA SÁNG</strong>
+                    </Link>
+                  </li>
+                ) : (
+                  <DropdownProfile />
+                )}
                 <li>
-                  <Link to="/signin" className="create-btn btn-hover">
-                    <strong>ĐĂNG NHẬP ĐỂ TỎA SÁNG</strong>
-                  </Link>
+                  <div className="night_mode_switch__btn">
+                    <div
+                      id="night-mode"
+                      className={`fas ${isNightMode ? "fa-moon" : "fa-sun"}`}
+                      onClick={handleToggleNightMode}
+                    ></div>
+                  </div>
                 </li>
                 <li>
                   <div className="night_mode_switch__btn">
