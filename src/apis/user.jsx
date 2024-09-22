@@ -13,3 +13,20 @@ export const loginAPI = async (username, password) => {
   }
 };
 
+export const customerRegisterAPI = async (data) => {
+  try {
+    const response = await axiosClient.post("/signup/customer", data);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const sellerRegisterAPI = async (data) => {
+  try {
+    const response = await axiosClient.post("/signup/supplier", data);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};

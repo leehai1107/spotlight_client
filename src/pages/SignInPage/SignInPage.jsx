@@ -41,8 +41,10 @@ function SignInPage() {
     // Handle form submission logic here
     const res = await loginAPI(formData.Username, formData.password);
     // save {res} to local storage
-    localStorage.setItem("token", JSON.stringify(res));
-    window.location.href = "/";
+    if (res) {
+      localStorage.setItem("token", JSON.stringify(res));
+      window.location.href = "/";
+    }
   };
 
   const togglePasswordVisibility = () => {
