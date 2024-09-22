@@ -198,6 +198,15 @@ export default function MainHeader() {
                     ></div>
                   </div>
                 </li>
+                <li>
+                  <div className="night_mode_switch__btn">
+                    <div
+                      id="night-mode"
+                      className={`fas ${isNightMode ? "fa-moon" : "fa-sun"}`}
+                      onClick={handleToggleNightMode}
+                    ></div>
+                  </div>
+                </li>
               </ul>
             </div>
           </div>
