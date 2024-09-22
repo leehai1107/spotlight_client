@@ -17,6 +17,17 @@ const responsive = {
   },
 };
 
+const bannerResponsive = {
+  0: {
+    items: 1,
+  },
+  464: {
+    items: 1,
+  },
+  1024: {
+    items: 1,
+  },
+};
 const Slider = ({
   items = [],
   autoplayTimeout = 3000,
@@ -28,58 +39,81 @@ const Slider = ({
   isFeatures,
 }) => {
   return (
-    <div>
-      <OwlCarousel
-        className="owl-theme"
-        loop={loop}
-        margin={margin}
-        responsive={responsive}
-        autoplay
-        autoplayTimeout={autoplayTimeout}
-        smartSpeed={smartSpeed}
-        nav={false} // Disable navigation arrows
-        dots={false} // Disable dots navigation
-        mouseDrag={false} // Disable mouse drag
-        touchDrag={false} // Disable touch drag
-        pullDrag={false} // Disable pull drag
-        freeDrag={false}
-      >
-        {isFeatures &&
-          items.map((item, index) => (
-            <div className="item" key={index}>
-              <div className="main-card">
-                <div className="host-item">
-                  <div className="host-img">
-                    <img src={item.image} alt={item.altText} />
+    <>
+      {isBanner ? (
+        <div className="slider-container">
+          <OwlCarousel
+            className="owl-theme"
+            loop={loop}
+            margin={margin}
+            responsive={bannerResponsive}
+            autoplay
+            autoplayTimeout={autoplayTimeout}
+            smartSpeed={smartSpeed}
+            nav={false} // Disable navigation arrows
+            dots={false} // Disable dots navigation
+            mouseDrag={false} // Disable mouse drag
+            touchDrag={false} // Disable touch drag
+            pullDrag={false} // Disable pull drag
+            freeDrag={false}
+          >
+            {isBanner &&
+              items.map((item, index) => (
+                <div className="item" key={index}>
+                  <div className="slider-container">
+                    <a href={item.link}>
+                      <img src={item.image} alt={item.altText} />
+                    </a>
                   </div>
-                  <h4>{item.title}</h4>
-                  <p>{item.description}</p>
                 </div>
-              </div>
-            </div>
-          ))}
-        {isAchievements &&
-          items.map((item, index) => (
-            <div className="item" key={index}>
-              <div className="sponsor">
-                <a href={item.link}>
-                  <img src={item.image} alt={item.altText} />
-                </a>
-              </div>
-            </div>
-          ))}
-        {isBanner &&
-          items.map((item, index) => (
-            <div className="item" key={index}>
-              <div className="slider-container">
-                <a href={item.link}>
-                  <img src={item.image} alt={item.altText} />
-                </a>
-              </div>
-            </div>
-          ))}
-      </OwlCarousel>
-    </div>
+              ))}
+          </OwlCarousel>
+        </div>
+      ) : (
+        <div>
+          <OwlCarousel
+            className="owl-theme"
+            loop={loop}
+            margin={margin}
+            responsive={responsive}
+            autoplay
+            autoplayTimeout={autoplayTimeout}
+            smartSpeed={smartSpeed}
+            nav={false} // Disable navigation arrows
+            dots={false} // Disable dots navigation
+            mouseDrag={false} // Disable mouse drag
+            touchDrag={false} // Disable touch drag
+            pullDrag={false} // Disable pull drag
+            freeDrag={false}
+          >
+            {isFeatures &&
+              items.map((item, index) => (
+                <div className="item" key={index}>
+                  <div className="main-card">
+                    <div className="host-item">
+                      <div className="host-img">
+                        <img src={item.image} alt={item.altText} />
+                      </div>
+                      <h4>{item.title}</h4>
+                      <p>{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            {isAchievements &&
+              items.map((item, index) => (
+                <div className="item" key={index}>
+                  <div className="sponsor">
+                    <a href={item.link}>
+                      <img src={item.image} alt={item.altText} />
+                    </a>
+                  </div>
+                </div>
+              ))}
+          </OwlCarousel>
+        </div>
+      )}
+    </>
   );
 };
 
