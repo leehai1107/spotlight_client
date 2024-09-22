@@ -3,6 +3,7 @@ import LeftSidebar from "../LeftSidebar/LeftSidebar";
 import { useDispatch } from "react-redux";
 import { collapseMenu, toggleMenu } from "../../redux/slice/menuSlice";
 import { menuItems } from ".";
+import DropdownProfileManager from "../DropdownProfileManager/DropdownProfileManager";
 
 export default function ManagerHeader() {
   const [isNightMode, setIsNightMode] = useState(false);
@@ -106,7 +107,7 @@ export default function ManagerHeader() {
                     <div className="create-bg">
                       <a href="create.html" className="offcanvas-create-btn">
                         <i className="fa-solid fa-calendar-days" />
-                        <span>Create Event</span>
+                        <span>Thêm Sản Phẩm</span>
                       </a>
                     </div>
                   </div>
@@ -117,7 +118,7 @@ export default function ManagerHeader() {
                         href="organiser_profile_view.html"
                       >
                         <i className="fa-solid fa-right-left me-2" />
-                        My Home
+                        Trang Chủ
                       </a>
                     </li>
                     <li className="nav-item">
@@ -166,48 +167,10 @@ export default function ManagerHeader() {
                   <li>
                     <a href="create.html" className="create-btn btn-hover">
                       <i className="fa-solid fa-calendar-days" />
-                      <span>Create Event</span>
+                      <span>Thêm Sản Phẩm</span>
                     </a>
                   </li>
-                  <li className="dropdown account-dropdown order-3">
-                    <a
-                      href="#"
-                      className="account-link"
-                      role="button"
-                      id="accountClick"
-                      data-bs-auto-close="outside"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
-                    >
-                      <img src="images/profile-imgs/img-13.jpg" alt="" />
-                      <i className="fas fa-caret-down arrow-icon" />
-                    </a>
-                    <ul
-                      className="dropdown-menu dropdown-menu-account dropdown-menu-end"
-                      aria-labelledby="accountClick"
-                    >
-                      <li>
-                        <div className="dropdown-account-header">
-                          <div className="account-holder-avatar">
-                            <img src="images/profile-imgs/img-13.jpg" alt="" />
-                          </div>
-                          <h5>John Doe</h5>
-                          <p>johndoe@example.com</p>
-                        </div>
-                      </li>
-                      <li className="profile-link">
-                        <a
-                          href="organiser_profile_view.html"
-                          className="link-item"
-                        >
-                          My Profile
-                        </a>
-                        <a href="sign_in.html" className="link-item">
-                          Sign Out
-                        </a>
-                      </li>
-                    </ul>
-                  </li>
+                  <DropdownProfileManager />
                   <li>
                     <div className="night_mode_switch__btn">
                       <div

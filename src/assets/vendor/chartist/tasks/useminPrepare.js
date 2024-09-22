@@ -9,13 +9,11 @@
  * Link: https://github.com/yeoman/grunt-usemin
  */
 
-'use strict';
-
 module.exports = function (grunt) {
   return {
     options: {
-      dest: '<%= pkg.config.public %>'
+      dest: "<%= pkg.config.public %>",
     },
-    html: '<%= pkg.config.tmp %>/index.html'
-  }
+    html: "<%= pkg.config.tmp %>/index.html",
+  };
 };

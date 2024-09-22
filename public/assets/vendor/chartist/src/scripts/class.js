@@ -4,9 +4,7 @@
  * @module Chartist.Class
  */
 /* global Chartist */
-(function(globalRoot, Chartist) {
-  'use strict';
-
+(function (globalRoot, Chartist) {
   function listToArray(list) {
     var arr = [];
     if (list.length) {
@@ -27,28 +25,28 @@
    *
    * @example
    * var Fruit = Class.extend({
-     * color: undefined,
-     *   sugar: undefined,
-     *
-     *   constructor: function(color, sugar) {
-     *     this.color = color;
-     *     this.sugar = sugar;
-     *   },
-     *
-     *   eat: function() {
-     *     this.sugar = 0;
-     *     return this;
-     *   }
-     * });
+   * color: undefined,
+   *   sugar: undefined,
+   *
+   *   constructor: function(color, sugar) {
+   *     this.color = color;
+   *     this.sugar = sugar;
+   *   },
+   *
+   *   eat: function() {
+   *     this.sugar = 0;
+   *     return this;
+   *   }
+   * });
    *
    * var Banana = Fruit.extend({
-     *   length: undefined,
-     *
-     *   constructor: function(length, sugar) {
-     *     Banana.super.constructor.call(this, 'Yellow', sugar);
-     *     this.length = length;
-     *   }
-     * });
+   *   length: undefined,
+   *
+   *   constructor: function(length, sugar) {
+   *     Banana.super.constructor.call(this, 'Yellow', sugar);
+   *     this.length = length;
+   *   }
+   * });
    *
    * var banana = new Banana(20, 40);
    * console.log('banana instanceof Fruit', banana instanceof Fruit);
@@ -64,7 +62,7 @@
 
     Chartist.Class.cloneDefinitions(proto, properties);
 
-    var constr = function() {
+    var constr = function () {
       var fn = proto.constructor || function () {},
         instance;
 
@@ -95,8 +93,11 @@
         // If this property already exist in target we delete it first
         delete target[propName];
         // Define the property with the descriptor from source
-        Object.defineProperty(target, propName,
-          Object.getOwnPropertyDescriptor(source, propName));
+        Object.defineProperty(
+          target,
+          propName,
+          Object.getOwnPropertyDescriptor(source, propName)
+        );
       });
     });
 
@@ -105,7 +106,6 @@
 
   Chartist.Class = {
     extend: extend,
-    cloneDefinitions: cloneDefinitions
+    cloneDefinitions: cloneDefinitions,
   };
-
-}(this || global, Chartist));
+})(this || global, Chartist);

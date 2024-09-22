@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { customerRegisterAPI, sellerRegisterAPI } from "../../apis/user";
 
 function SignUpPage() {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
+  const navigate = useNavigate();
   const [isSeller, setIsSeller] = useState(false); // State to track whether the user is a seller
   const [formData, setFormData] = useState({
     firstName: "",
@@ -13,6 +15,7 @@ function SignUpPage() {
     username: "",
     password: "",
     confirmPassword: "",
+    address: "",
     shopName: "",
     shopAddress: "",
     shopPhone: "",
@@ -75,6 +78,10 @@ function SignUpPage() {
       newErrors.confirmPassword = "Mật khẩu xác nhận không giống nhau";
     }
 
+    if (!formData.address) {
+      newErrors.address = "Địa chỉ là bắt buộc";
+    }
+
     if (isSeller) {
       // Additional validation for shop-related fields
       if (!formData.shopName) {
@@ -99,6 +106,44 @@ function SignUpPage() {
       return;
     }
     // Handle form submission logic here
+    if (isSeller) {
+      const data = {
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        username: formData.username,
+        password: formData.password,
+        address: formData.address,
+        shop_name: formData.shopName,
+        shop_address: formData.shopAddress,
+        shop_phone: formData.shopPhone,
+        shop_description: formData.shopDescription,
+      };
+      // Handle seller registration logic
+      const res = await sellerRegisterAPI(data);
+      if (res) {
+        // window.location.href = "/";
+        navigate("/signin");
+      }
+    } else {
+      const data = {
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        username: formData.username,
+        password: formData.password,
+        address: formData.address,
+      };
+
+      // Handle buyer registration logic
+      const res = await customerRegisterAPI(data);
+      if (res) {
+        // window.location.href = "/";
+        navigate("/signin");
+      }
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -329,16 +374,36 @@ function SignUpPage() {
                           )}
                         </div>
                       </div>
+                      <div className="col-lg-12 col-md-12">
+                        <div className="form-group mt-4">
+                          <label className="form-label">Địa Chỉ*</label>
+                          <input
+                            className="form-control h_50"
+                            type="text"
+                            name="address"
+                            placeholder="Nhập Địa Chỉ"
+                            value={formData.address}
+                            onChange={handleChange}
+                          />
+                          {errors.address && (
+                            <small className="text-danger">
+                              {errors.address}
+                            </small>
+                          )}
+                        </div>
+                      </div>
                       {isSeller && (
                         <>
                           <div className="col-lg-12 col-md-12">
                             <div className="form-group mt-4">
-                              <label className="form-label">Tên Shop*</label>
+                              <label className="form-label">
+                                Tên Cửa Hàng*
+                              </label>
                               <input
                                 className="form-control h_50"
                                 type="text"
                                 name="shopName"
-                                placeholder="Nhập Tên Shop"
+                                placeholder="Nhập Tên Cửa Hàng"
                                 value={formData.shopName}
                                 onChange={handleChange}
                               />
@@ -352,13 +417,13 @@ function SignUpPage() {
                           <div className="col-lg-12 col-md-12">
                             <div className="form-group mt-4">
                               <label className="form-label">
-                                Địa Chỉ Shop*
+                                Địa Chỉ Cửa Hàng*
                               </label>
                               <input
                                 className="form-control h_50"
                                 type="text"
                                 name="shopAddress"
-                                placeholder="Nhập Địa Chỉ Shop"
+                                placeholder="Nhập Địa Chỉ Của Cửa Hàng"
                                 value={formData.shopAddress}
                                 onChange={handleChange}
                               />
@@ -372,13 +437,13 @@ function SignUpPage() {
                           <div className="col-lg-12 col-md-12">
                             <div className="form-group mt-4">
                               <label className="form-label">
-                                Số Điện Thoại Shop*
+                                Số Điện Thoại Của Cửa Hàng*
                               </label>
                               <input
                                 className="form-control h_50"
                                 type="text"
                                 name="shopPhone"
-                                placeholder="Nhập Số Điện Thoại Shop"
+                                placeholder="Nhập Số Điện Thoại Của Cửa Hàng"
                                 value={formData.shopPhone}
                                 onChange={handleChange}
                               />
@@ -391,11 +456,13 @@ function SignUpPage() {
                           </div>
                           <div className="col-lg-12 col-md-12">
                             <div className="form-group mt-4">
-                              <label className="form-label">Mô Tả Shop</label>
+                              <label className="form-label">
+                                Mô Tả Của Cửa Hàng
+                              </label>
                               <textarea
                                 className="form-control"
                                 name="shopDescription"
-                                placeholder="Nhập Mô Tả Shop"
+                                placeholder="Nhập Mô Tả Của Cửa Hàng"
                                 value={formData.shopDescription}
                                 onChange={handleChange}
                                 rows={4}
