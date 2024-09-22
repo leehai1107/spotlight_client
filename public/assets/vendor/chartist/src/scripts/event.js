@@ -5,8 +5,6 @@
  */
 /* global Chartist */
 (function (globalRoot, Chartist) {
-  'use strict';
-
   Chartist.EventEmitter = function () {
     var handlers = [];
 
@@ -31,11 +29,11 @@
      */
     function removeEventHandler(event, handler) {
       // Only do something if there are event handlers with this name existing
-      if(handlers[event]) {
+      if (handlers[event]) {
         // If handler is set we will look for a specific handler and only remove this
-        if(handler) {
+        if (handler) {
           handlers[event].splice(handlers[event].indexOf(handler), 1);
-          if(handlers[event].length === 0) {
+          if (handlers[event].length === 0) {
             delete handlers[event];
           }
         } else {
@@ -54,15 +52,15 @@
      */
     function emit(event, data) {
       // Only do something if there are event handlers with this name existing
-      if(handlers[event]) {
-        handlers[event].forEach(function(handler) {
+      if (handlers[event]) {
+        handlers[event].forEach(function (handler) {
           handler(data);
         });
       }
 
       // Emit event to star event handlers
-      if(handlers['*']) {
-        handlers['*'].forEach(function(starHandler) {
+      if (handlers["*"]) {
+        handlers["*"].forEach(function (starHandler) {
           starHandler(event, data);
         });
       }
@@ -71,8 +69,7 @@
     return {
       addEventHandler: addEventHandler,
       removeEventHandler: removeEventHandler,
-      emit: emit
+      emit: emit,
     };
   };
-
-}(this || global, Chartist));
+})(this || global, Chartist);

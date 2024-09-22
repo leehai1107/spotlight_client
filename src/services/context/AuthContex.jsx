@@ -6,13 +6,13 @@ export const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState({});
 
   useEffect(() => {
-    let role = null;
+    let role_id = null;
     const token = localStorage.getItem("token");
     if (token) {
-      role = JSON.parse(atob(token.split(".")[1])).role;
+      role_id = JSON.parse(atob(token.split(".")[1])).role_id;
     }
-    if (role) {
-      setAuth({ role });
+    if (role_id) {
+      setAuth({ role_id });
     }
   }, []);
 
