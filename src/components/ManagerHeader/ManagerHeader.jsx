@@ -5,6 +5,7 @@ import { collapseMenu, toggleMenu } from "../../redux/slice/menuSlice";
 import { menuItems } from ".";
 import DropdownProfileManager from "../DropdownProfileManager/DropdownProfileManager";
 
+
 export default function ManagerHeader() {
   const [isNightMode, setIsNightMode] = useState(false);
 
@@ -107,7 +108,9 @@ export default function ManagerHeader() {
                     <div className="create-bg">
                       <a href="create.html" className="offcanvas-create-btn">
                         <i className="fa-solid fa-calendar-days" />
+
                         <span>Thêm Sản Phẩm</span>
+
                       </a>
                     </div>
                   </div>
@@ -167,10 +170,12 @@ export default function ManagerHeader() {
                   <li>
                     <a href="create.html" className="create-btn btn-hover">
                       <i className="fa-solid fa-calendar-days" />
+
                       <span>Thêm Sản Phẩm</span>
                     </a>
                   </li>
                   <DropdownProfileManager />
+
                   <li>
                     <div className="night_mode_switch__btn">
                       <div

@@ -2,15 +2,15 @@
 Night Mood
 ****************/
 :root {
-    --main-color: #ff7f50;
-    --blackground-color: #450b00;
+    --main-color: #F9D600;
+    --blackground-color: #061838;
 }
 
 .night-mode #night-mode {
     padding: 0;
     font-size: 15px;
     background: var(--main-color);
-    color: #fff;
+    color: #F8F8F8;
     cursor: pointer;
     border-radius: 50%;
     width: 40px;
@@ -68,7 +68,7 @@ Night Mood
 .night-mode h3,
 .night-mode h4,
 .night-mode h5 {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode p {
@@ -94,12 +94,12 @@ Night Mood
 }
 
 .night-mode .nav-link:hover {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
 }
 
 
 .night-mode .barren-head .nav-item .nav-link.active, .night-mode .barren-head .nav-item .show>.nav-link {
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .hero-banner {
@@ -115,7 +115,7 @@ Night Mood
 }
 
 .night-mode .barren-breadcrumb .breadcrumb .breadcrumb-item a:hover {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .barren-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
@@ -124,7 +124,7 @@ Night Mood
 
 .night-mode .footer {
     background: #1A1D1F;
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .footer-link {
@@ -132,7 +132,7 @@ Night Mood
 }
 
 .night-mode .footer-link:hover {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .filter-tag a {
@@ -143,7 +143,7 @@ Night Mood
 
 .night-mode .filter-tag a.active, .night-mode .filter-tag a:hover {
     background: #272B30;
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .main-card {
@@ -152,15 +152,15 @@ Night Mood
 }
 
 .night-mode .event-content>.event-title {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .event-content>.event-title:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .duration-price {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .remaining {
@@ -173,13 +173,13 @@ Night Mood
 }
 
 .night-mode .mixitup-control-active {
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .mixitup-control-active[data-filter]:after {
     background: transparent;
-    border-bottom: 3px solid #fff;
-    color: #fff;
+    border-bottom: 3px solid #F8F8F8;
+    color: #F8F8F8;
 }
 
 .night-mode .event-timing {
@@ -203,14 +203,14 @@ Night Mood
 }
 
 .night-mode .owl-nav .owl-prev:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     opacity: 1;
     background: var(--main-color) !important;
     border: 1px solid var(--main-color) !important;
 }
 
 .night-mode .owl-nav .owl-next:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     opacity: 1;
     border: 1px solid var(--main-color) !important;
     background: var(--main-color) !important;
@@ -225,11 +225,11 @@ Night Mood
 }
 
 .night-mode .step-text {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .step-link span {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .step-tabs .step-link:hover {
@@ -242,7 +242,7 @@ Night Mood
 }
 
 .night-mode .step-tabs .step-link.active:hover {
-    color: #fff;
+    color: #F8F8F8;
     background-color: var(--main-color);
 }
 
@@ -268,12 +268,12 @@ Night Mood
 }
 
 .night-mode .dropdown-submenu .dropdown-item:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     background-color: transparent !important;
 }
 
 .night-mode .dropdown-submenu .dropdown-item:focus {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     background-color: transparent;
 }
 
@@ -282,7 +282,7 @@ Night Mood
 }
 
 .night-mode .dropdown-menu-account li .link-item:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     background-color: transparent !important;
 }
 
@@ -295,7 +295,7 @@ Night Mood
 }
 
 .night-mode .account-link:hover {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .navbar-toggler-icon {
@@ -303,7 +303,7 @@ Night Mood
 }
 
 .night-mode .navbar-toggler-icon:hover {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .offcanvas {
@@ -317,7 +317,7 @@ Night Mood
 
 .night-mode .close-btn:hover, .night-mode .close-btn:focus {
     background: #272B30;
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .checkout-title {
@@ -333,33 +333,33 @@ Night Mood
 }
 
 .night-mode .user-dts .user-name {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .esv-btn {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272B30;
     background: #272B30;
 }
 
 .night-mode .esv-btn:hover {
-    color: #fff;
-    border: 1px solid #efefef;
+    color: #F8F8F8;
+    border: 1px solid #F8F8F8;
 }
 
 .night-mode .co-main-btn {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272b30 !important;
     background: #272B30 !important;
 }
 
 .night-mode .co-main-btn:hover {
-    color: #fff !important;
-    border: 1px solid #efefef !important;
+    color: #F8F8F8 !important;
+    border: 1px solid #F8F8F8 !important;
 }
 
 .night-mode .ff-block a {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .ff-block a:first-child {
@@ -367,7 +367,7 @@ Night Mood
 }
 
 .night-mode .profile-social-link h6 {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .modal-content {
@@ -383,7 +383,7 @@ Night Mood
 
 .night-mode .close-model-btn:hover {
     background: #272B30;
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .ff-tablist {
@@ -391,14 +391,14 @@ Night Mood
 }
 
 .night-mode .follow-btn {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272b30;
     background: #272B30 !important;
 }
 
 .night-mode .follow-btn:hover {
-    color: #fcfcfc !important;
-    border: 1px solid #efefef !important;
+    color: #F8F8F8 !important;
+    border: 1px solid #F8F8F8 !important;
 }
 
 .night-mode .modal-header {
@@ -414,7 +414,7 @@ Night Mood
 }
 
 .night-mode .form-label {
-    color: #efefef;
+    color: #F8F8F8;
 }
 
 .night-mode .model-content .form-control {
@@ -422,25 +422,25 @@ Night Mood
 }
 
 .night-mode .form-control {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #272B30 !important;
     border: 1px solid #272B30 !important;
 }
 
 .night-mode .form-control:focus {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #000 !important;
     border: 1px solid var(--main-color) !important;
 }
 
 .night-mode .form-textarea {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #272B30 !important;
     border: 1px solid #272B30 !important;
 }
 
 .night-mode .form-textarea:focus {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #000 !important;
     border: 1px solid var(--main-color) !important;
 }
@@ -454,11 +454,11 @@ Night Mood
 }
 
 .night-mode .blog-title {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .blog-title:hover {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .cb-icon {
@@ -467,7 +467,7 @@ Night Mood
 }
 
 .night-mode .cb-icon:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     background: var(--main-color);
 }
 
@@ -500,35 +500,35 @@ Night Mood
 }
 
 .night-mode .order-text {
-    color: #efefef;
+    color: #F8F8F8;
 }
 
 .night-mode .confirmation-btn span {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .event-order-dt-content .category-type {
-    color: #efefef;
+    color: #F8F8F8;
 }
 
 .night-mode .bp-form .btn-light {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #272B30 !important;
     border: 1px solid #272B30 !important;
 }
 
 .night-mode .bootstrap-select .dropdown-item:hover {
-    color: #FCFCFC !important;
+    color: #F8F8F8 !important;
     background: inherit !important;
 }
 
 .night-mode .bootstrap-select .dropdown-item.active:hover {
-    color: #FCFCFC !important;
+    color: #F8F8F8 !important;
     background: var(--main-color) !important;
 }
 
 .night-mode .bootstrap-select.dropdown-item.active, .night-mode .bootstrap-select .dropdown-item:active {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     text-decoration: none;
     background-color: var(--main-color) !important;
 }
@@ -542,7 +542,7 @@ Night Mood
 }
 
 .night-mode .ttl-clr {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .account-link img {
@@ -569,11 +569,11 @@ Night Mood
 }
 
 .night-mode .copyright-footer {
-    color: #efefef;
+    color: #F8F8F8;
 }
 
 .night-mode .contact-hero-banner-info p {
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .create-icon i {
@@ -610,15 +610,15 @@ Night Mood
 
 .night-mode #add-event-tab .step-steps>li.active>a>.step-name,
 .night-mode #add-eventevent-tab .step-steps>li.done>a>.step-name {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .color-black {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .hosting-title {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .ck.ck-editor__main>.ck-editor__editable:not(.ck-focused) {
@@ -637,7 +637,7 @@ Night Mood
 }
 
 .night-mode .ck.ck-editor__main>.ck-editor__editable p {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 
@@ -666,11 +666,11 @@ Night Mood
 }
 
 .night-mode .absolute-icon {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .brn-checkbox-radio span {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .brn-checkbox-radio span:last-child {
@@ -678,11 +678,11 @@ Night Mood
 }
 
 .night-mode .percentage-icon {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .price-ticket-card .price-ticket-card-body h6 {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .price-ticket-card .price-ticket-card-body .icon-box .icon {
@@ -695,19 +695,19 @@ Night Mood
 }
 
 .night-mode .dropdown-item:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     background-color: transparent !important;
 }
 
 .night-mode .option-btn-1 {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272B30;
     background: #272B30;
 }
 
 .night-mode .option-btn-1:hover {
-    color: #fcfcfc;
-    border: 1px solid #efefef;
+    color: #F8F8F8;
+    border: 1px solid #F8F8F8;
 }
 
 .night-mode .price-variation-head {
@@ -715,7 +715,7 @@ Night Mood
 }
 
 .night-mode .model-content .btn-light {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #272B30 !important;
     border: 1px solid #272B30 !important;
 }
@@ -731,21 +731,21 @@ Night Mood
 }
 
 .night-mode .search-form .btn-light {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #111315 !important;
     border: 1px solid #111315 !important;
 }
 
 .night-mode .faq-widget-links li a {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .accordion-btn:not(.collapsed) {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .accordion-btn {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .faq-accordion .accordion-item:not(:first-of-type) {
@@ -766,11 +766,11 @@ Night Mood
 
 .night-mode .help-item-icon {
     background: #272B30;
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .help-item-link {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border-bottom: 1px solid #272B30;
 }
 
@@ -804,38 +804,38 @@ Night Mood
 }
 
 .night-mode .QR-counter-type li {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .main-table .table .thead-dark th {
-    color: #efefef;
+    color: #F8F8F8;
     background-color: #272b30;
     border-color: #272b30;
 }
 
 .night-mode .main-table .table {
-    color: #fff;
+    color: #F8F8F8;
     background: #1a1d1f;
     border: 1px solid #272b30;
 }
 
 .night-mode .main-table .table tbody tr td a {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .main-table .table tbody tr td a:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 
 .night-mode .totalinv2 {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .ocard-right .co-main-btn i {
     background: #272b30;
-    border: 2px dashed #efefef;
-    color: #efefef;
+    border: 2px dashed #F8F8F8;
+    color: #F8F8F8;
 }
 
 .night-mode .org_design_button {
@@ -845,7 +845,7 @@ Night Mood
 
 .night-mode .address-title {
     border-bottom: 1px solid #272b30;
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .ct-label {
@@ -857,7 +857,7 @@ Night Mood
 }
 
 .night-mode .btn-light {
-    color: #fcfcfc !important;
+    color: #F8F8F8 !important;
     background-color: #272b30 !important;
     border: 1px solid #272b30 !important;
     ;
@@ -865,7 +865,7 @@ Night Mood
 
 .night-mode .menu--link.active {
     background: #272b30;
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .vertical_nav {
@@ -878,40 +878,40 @@ Night Mood
 }
 
 .night-mode .menu--link:hover, .night-mode .menu--link:hover .menu--label {
-    color: #fcfcfc;
+    color: #F8F8F8;
     background: transparent;
 }
 
 .night-mode .sub_menu--link .menu--icon:hover {
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .custom2-tabs .tab-link {
     background: #272b30;
     border: 1px solid #272b30;
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .custom2-tabs .tab-link {
     background: #272b30;
     border: 1px solid #272b30;
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .custom2-tabs .tab-link:hover {
-    color: #fcfcfc;
+    color: #F8F8F8;
     background-color: #272b30;
-    border: 1px solid #efefef;
+    border: 1px solid #F8F8F8;
 }
 
 .night-mode .custom2-tabs .tab-link.active, .night-mode .tab-tabs .show>.tab-link {
-    color: #fff;
+    color: #F8F8F8;
     background-color: var(--main-color);
     border: 1px solid var(--main-color);
 }
 
 .night-mode .custom2-tabs .tab-link.active span, .night-mode .tab-tabs .show>.tab-link span {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .card-top {
@@ -923,7 +923,7 @@ Night Mood
 }
 
 .night-mode .card-dt-text span {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .card-icon i {
@@ -932,13 +932,13 @@ Night Mood
 }
 
 .night-mode .option-btn {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272B30;
     background: #272B30;
 }
 
 .night-mode .option-btn:hover {
-    border: 1px solid #efefef;
+    border: 1px solid #F8F8F8;
 }
 
 .night-mode .event-list-icon {
@@ -956,7 +956,7 @@ Night Mood
 }
 
 .night-mode .contact-list .bottom .icon-box h6 {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .gift-coupon-icon {
@@ -964,7 +964,7 @@ Night Mood
 }
 
 .night-mode .contact-list .top .icon-box h5 {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .contact-list .top .icon-box p {
@@ -977,18 +977,18 @@ Night Mood
 }
 
 .night-mode .bank-card h6 {
-    color: #efefef;
+    color: #F8F8F8;
 }
 
 .night-mode .action-link {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #111315;
     background: #111315;
 }
 
 .night-mode .action-link:hover {
-    color: #fcfcfc !important;
-    border: 1px solid #efefef;
+    color: #F8F8F8 !important;
+    border: 1px solid #F8F8F8;
 }
 
 .night-mode .subscription-item {
@@ -996,7 +996,7 @@ Night Mood
 }
 
 .night-mode .s-info p {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .tracking-tab .tracking-head {
@@ -1010,7 +1010,7 @@ Night Mood
 
 .night-mode .tracking-tab .nav-tabs .nav-link.active {
     background-color: var(--main-color);
-    color: #fff !important;
+    color: #F8F8F8 !important;
 }
 
 .night-mode .specific-event {
@@ -1040,14 +1040,14 @@ Night Mood
 }
 
 .night-mode .sv-btn {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272b30;
     background: #272b30;
 }
 
 .night-mode .sv-btn:hover {
-    color: #fcfcfc;
-    border: 1px solid #efefef;
+    color: #F8F8F8;
+    border: 1px solid #F8F8F8;
     background: #272b30;
 }
 
@@ -1086,7 +1086,7 @@ Night Mood
 }
 
 .night-mode .event-link span {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .event-count {
@@ -1125,14 +1125,14 @@ Night Mood
 }
 
 .night-mode .custom-tabs .tab-link:hover {
-    color: #fff;
+    color: #F8F8F8;
     background-color: #1a1d1f;
     border-bottom: 3px solid transparent;
 }
 
 
 .night-mode .custom-tabs .tab-link.active span, .night-mode .tab-tabs .show>.tab-link span {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .custom-tabs .tab-link.active:hover {
@@ -1142,7 +1142,7 @@ Night Mood
 }
 
 .night-mode .flex-slide .right h3 {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .calculate-top {
@@ -1154,12 +1154,12 @@ Night Mood
 }
 
 .night-mode .app-top-right-link {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .divider span {
     background: #111315;
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .divider:before {
@@ -1167,36 +1167,36 @@ Night Mood
 }
 
 .night-mode .social-login-btn {
-    color: #fcfcfc;
+    color: #F8F8F8;
     border: 1px solid #272b30;
     background: #272b30;
 }
 
 .night-mode .social-login-btn:hover {
-    color: #fcfcfc;
-    border: 1px solid #efefef;
+    color: #F8F8F8;
+    border: 1px solid #F8F8F8;
     background: #272b30;
 }
 
 .night-mode .agree-text {
-    color: #efefef;
+    color: #F8F8F8;
 }
 
 .night-mode .term-link {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .terms-content ol li {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .select-tickets-block h6 {
-    color: #fff;
+    color: #F8F8F8;
     border-bottom: 1px solid #272b30;
 }
 
 .night-mode .ticket-price {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .x-title {
@@ -1204,17 +1204,17 @@ Night Mood
 }
 
 .night-mode .counter input {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .counter span {
-    color: #efefef;
+    color: #F8F8F8;
     background: #111315;
     border: 2px solid #272b30;
 }
 
 .night-mode .counter span:hover {
-    color: #fff;
+    color: #F8F8F8;
     background: var(--main-color);
     border: 2px solid var(--main-color);
 }
@@ -1224,11 +1224,11 @@ Night Mood
 }
 
 .night-mode .help-faq-link {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .help-pagination-link {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .premium-select .option {
@@ -1241,7 +1241,7 @@ Night Mood
 }
 
 .night-mode .wrapper .option span {
-    color: #fcfcfc;
+    color: #F8F8F8;
 }
 
 .night-mode .wrapper .option span:last-child {
@@ -1256,7 +1256,7 @@ Night Mood
 
 .night-mode #option-1:checked:checked~.option-1 span,
 .night-mode #option-2:checked:checked~.option-2 span {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode #option-1:checked:checked~.option-1 span:last-child,
@@ -1270,7 +1270,7 @@ Night Mood
 }
 
 .night-mode .upload-file-dt span {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .featured-controls label span {
@@ -1281,7 +1281,7 @@ Night Mood
 
 .night-mode .featured-controls input:checked+span {
     background: #272B30;
-    color: #fff !important
+    color: #F8F8F8 !important
 }
 
 .night-mode .role-header {
@@ -1290,7 +1290,7 @@ Night Mood
 
 
 .night-mode .role-header h6 {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .role-header span {
@@ -1298,11 +1298,11 @@ Night Mood
 }
 
 .night-mode .role-item span {
-    color: #fff;
+    color: #F8F8F8;
 }
 
 .night-mode .i-disabled {
-    color: #fff !important;
+    color: #F8F8F8 !important;
     background: rgba(255, 255, 255, 0.1) !important;
 }
 

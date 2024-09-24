@@ -22,25 +22,42 @@ export default function AboutUsPage() {
           <div className="row">
             <div className="col-lg-12 col-md-12">
               <div className="main-title checkout-title">
-                <h3>
-                  Our aim is to provide a powerful and affordable event
-                  ticketing solution that can handle events of any size and
-                  complexity without an issue.
-                </h3>
+                <h1>
+                  <strong>
+                    {" "}
+                    GIỚI THIỆU VỀ <a href="#">SPOTLIGHT</a>
+                  </strong>
+                </h1>
               </div>
               <div className="about--description">
                 <p>
-                  Barren’s online event ticketing software was built on the idea
-                  that anyone, anywhere in the world wanting to organise an
-                  event should have the tools to simply do so. We promote this
-                  idea everyday through the dedication of a team based out of
-                  Melbourne, Australia.
+                  <strong>Spotlight - Custom Phụ Kiện Tốt Nghiệp</strong>, là
+                  một trang web có thể biến những khoảnh khắc quan trọng thành
+                  những kỉ niệm đáng nhớ! Là nơi kết nối các bạn sinh viên đáng
+                  yêu và những bên cung cấp các phụ kiện tốt nghiệp được làm
+                  riêng theo yêu cầu, sở thích cá nhân, từ mũ tốt nghiệp, dây
+                  đeo, đến các phụ kiện đi kèm độc đáo.
                 </p>
                 <p>
-                  The focus of our efforts is the event organiser, who works
-                  hard to ensure that their attendees have a great experience.
-                  We share that passion for bringing people together, creating
-                  memories and enriching lives.
+                  Spotlight được thành lập vào năm 2024 bởi những sinh viên đam
+                  mê khởi nghiệp , dự án bắt nguồn từ những ước mơ lưu giữ những
+                  khoảnh khắc quan trọng của cuộc đời, mang đến sự hạnh phúc và
+                  hài lòng cho tất cả mọi người.
+                </p>
+                <p>
+                  Đến với Spotlight, bạn sẽ thỏa sức sáng tạo, được trực tiếp
+                  tham gia vào quá trình cá nhân hoá từng phụ kiện để tạo nên
+                  thông điệp riêng biệt cho bản thân. Chúng mình tin rằng, mỗi
+                  cá tính đều xứng đáng được tôn vinh và tỏa sáng.
+                </p>
+                <p>
+                  Spotlight luôn chú trọng vào việc làm thế nào để tạo ra một
+                  môi trường thoải mái nhất, đáp ứng kịp thời về nhu cầu cũng
+                  như thị hiếu của khách hàng. Spotlight sẽ luôn làm mới mình để
+                  mang đến cho khách hàng sự đầy đủ và đa dạng trong từng sản
+                  phẩm, mẫu mã. Một tiện ích nữa mà Spotlight mong muốn mang đến
+                  cho khách hàng đó là sự tiện nghi và tiết kiệm tối đa thời
+                  gian mua sắm để tìm được những món đồ ưng ý nhất.
                 </p>
               </div>
             </div>
