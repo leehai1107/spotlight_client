@@ -3,23 +3,38 @@ import TeamMember from "../TeamMember/TeamMember";
 
 const teamMemberItems = [
   {
-    name: "Lizzy Wizzy",
+    name: "Nguyễn Trần Cao Vy",
+    position: "CEO",
+    image: "./assets/images/about/team-8.jpg",
+  },
+  {
+    name: "Nguyễn Thị Thanh Châu",
+    position: "CMO",
+    image: "./assets/images/about/team-8.jpg",
+  },
+  {
+    name: "Phạm Hồng Phúc An",
+    position: "CFO",
+    image: "./assets/images/about/team-8.jpg",
+  },
+  {
+    name: "Nguyễn Võ Anh Kiệt",
+    position: "Front-end Developer",
+    image: "./assets/images/about/team-8.jpg",
+  },
+  {
+    name: "Phan Lê Thanh Thảo",
+    position: "Back-end Developer",
+    image: "./assets/images/about/team-8.jpg",
+  },
+  {
+    name: "Lê Chí Hải",
     position: "Tech Lead",
     image: "./assets/images/about/team-8.jpg",
   },
   {
-    name: "Lizzy Wizzy",
-    position: "Tech Lead",
-    image: "./assets/images/about/team-8.jpg",
-  },
-  {
-    name: "Lizzy Wizzy",
-    position: "Tech Lead",
-    image: "./assets/images/about/team-8.jpg",
-  },
-  {
-    name: "Lizzy Wizzy",
-    position: "Tech Lead",
+    name: "Trần Nhật Thu San",
+    position: "Art Director",
     image: "./assets/images/about/team-8.jpg",
   },
 ];
@@ -31,10 +46,9 @@ export default function TeamMemberList() {
         <div className="row">
           <div className="col-md-12">
             <div className="main-title text-center">
-              <h3>The Team Behind Barren</h3>
+              <h3>Thành Viên Sáng Lập Spotlight</h3>
               <p>
-                Every day we are passionately dedicated to make buying and
-                selling tickets simple and secure.
+              ⭐Always Shining Like A Star⭐
               </p>
             </div>
           </div>

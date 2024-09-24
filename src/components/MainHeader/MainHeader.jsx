@@ -189,6 +189,7 @@ export default function MainHeader() {
                 ) : (
                   <DropdownProfile />
                 )}
+<<<<<<< HEAD
                 <li>
                   <div className="night_mode_switch__btn">
                     <div
@@ -198,6 +199,8 @@ export default function MainHeader() {
                     ></div>
                   </div>
                 </li>
+=======
+>>>>>>> main
                 <li>
                   <div className="night_mode_switch__btn">
                     <div

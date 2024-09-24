@@ -4,8 +4,12 @@ import { useDispatch } from "react-redux";
 import { collapseMenu, toggleMenu } from "../../redux/slice/menuSlice";
 import { menuItems } from ".";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import DropdownProfileManager from "../DropdownProfileManager/DropdownProfileManager";
 =======
+>>>>>>> main
+=======
+import DropdownProfileManager from "../DropdownProfileManager/DropdownProfileManager";
 >>>>>>> main
 
 export default function ManagerHeader() {
@@ -111,9 +115,13 @@ export default function ManagerHeader() {
                       <a href="create.html" className="offcanvas-create-btn">
                         <i className="fa-solid fa-calendar-days" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                         <span>Thêm Sản Phẩm</span>
 =======
                         <span>Create Event</span>
+>>>>>>> main
+=======
+                        <span>Thêm Sản Phẩm</span>
 >>>>>>> main
                       </a>
                     </div>
@@ -126,9 +134,13 @@ export default function ManagerHeader() {
                       >
                         <i className="fa-solid fa-right-left me-2" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                         Trang Chủ
 =======
                         My Home
+>>>>>>> main
+=======
+                        Trang Chủ
 >>>>>>> main
                       </a>
                     </li>
@@ -179,6 +191,7 @@ export default function ManagerHeader() {
                     <a href="create.html" className="create-btn btn-hover">
                       <i className="fa-solid fa-calendar-days" />
 <<<<<<< HEAD
+<<<<<<< HEAD
                       <span>Thêm Sản Phẩm</span>
                     </a>
                   </li>
@@ -226,6 +239,12 @@ export default function ManagerHeader() {
                       </li>
                     </ul>
                   </li>
+>>>>>>> main
+=======
+                      <span>Thêm Sản Phẩm</span>
+                    </a>
+                  </li>
+                  <DropdownProfileManager />
 >>>>>>> main
                   <li>
                     <div className="night_mode_switch__btn">
