@@ -173,10 +173,10 @@ export default function MainHeader() {
             <div className="right-header order-2">
               <ul className="align-self-stretch">
                 <li>
-                  <a href="/explored" className="create-btn btn-hover">
-                    <i className="fa-solid fa-calendar-days" />
+                  <a href="/customize" className="create-btn btn-hover">
+                    <i className="fa-solid fa-cog" />
                     <span>
-                      <strong>MUA NGAY</strong>
+                      <strong>CUSTOM NGAY</strong>
                     </span>
                   </a>
                 </li>

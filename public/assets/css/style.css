@@ -3426,7 +3426,7 @@ input:checked+.slider .option-right {
   }
 
   .wrapper-body {
-
+    margin-left: 254px;
     transition: all 0.3s ease-out;
   }
 
@@ -3757,7 +3757,7 @@ input:checked+.slider .option-right {
 
 .custom2-tabs .tab-link.active,
 .tab-tabs .show>.tab-link {
-  color: #fff;
+  color: #181818;
   background-color: var(--main-color);
   border: 1px solid var(--main-color);
 }

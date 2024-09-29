@@ -10,7 +10,9 @@ import SignInPage from "../pages/SignInPage/SignInPage";
 import SignUpPage from "../pages/SignUpPage/SignUpPage";
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import ManagerLayout from "../layouts/ManagerLayout/ManagerLayout";
-import ShopOwnerPage from "../pages/ShopOwnerPage/ShopOwnerPage";
+import AccountManagerPage from "../pages/AccountManagerPage/AccountManagerPage";
+import ShopOwnerCreatePage from "../pages/ShopOwnerCreatePage/ShopOwnerCreatePage";
+import ProductCustomizePage from "../pages/ProductCustomizePage/ProductCustomizePage.jsx";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -24,6 +26,7 @@ export default function AppRoutes() {
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
                 <Route path="about_us" element={<AboutUsPage />} />
+                <Route path="customize" element={<ProductCustomizePage />} />
               </Route>
               {/* <BlankLayout /> for signup and signin because no need header or footer */}
               <Route path="/" element={<BlankLayout />}>
@@ -35,14 +38,14 @@ export default function AppRoutes() {
             // Admin
             <>
               <Route path="/" element={<ManagerLayout />}>
-                <Route path="manager" element={<ShopOwnerPage />} />
+                <Route index element={<AccountManagerPage />} />
               </Route>
             </>
           ) : auth?.role_id === 2 ? (
             // Shop Owner
             <>
               <Route path="/" element={<ManagerLayout />}>
-                <Route path="manager" element={<ShopOwnerPage />} />
+                <Route index element={<ShopOwnerCreatePage />} />
               </Route>
             </>
           ) : auth?.role_id === 3 ? (
