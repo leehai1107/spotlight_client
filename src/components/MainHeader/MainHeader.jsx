@@ -77,9 +77,22 @@ export default function MainHeader() {
                         <span>ĐĂNG NHẬP ĐỂ TỎA SÁNG</span>
                       </a>
                     </div>
+                    <div className="create-bg">
+                      <a href={"/cart"} className="offcanvas-create-btn">
+                        <strong>GIỎ HÀNG 🛒</strong>
+                        <span>(0)</span>
+                      </a>
+                    </div>
                   </div>
                 ) : (
-                  <></>
+                  <>
+                    <div className="create-bg">
+                      <a href={"/cart"} className="offcanvas-create-btn">
+                        <strong>GIỎ HÀNG 🛒</strong>
+                        <span>(0)</span>
+                      </a>
+                    </div>
+                  </>
                 )}
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe_5">
                   <li className="nav-item">
@@ -170,7 +183,7 @@ export default function MainHeader() {
                 </div>
               </div>
             </div>
-            <div className="right-header order-2">
+            <div className="right-header order-3">
               <ul className="align-self-stretch">
                 <li>
                   <a href="/customize" className="create-btn btn-hover">
@@ -189,6 +202,13 @@ export default function MainHeader() {
                 ) : (
                   <DropdownProfile />
                 )}
+
+                <li>
+                  <Link to="/cart" className="create-btn btn-hover">
+                    <strong>GIỎ HÀNG 🛒</strong>
+                    <span>(0)</span>
+                  </Link>
+                </li>
 
                 <li>
                   <div className="night_mode_switch__btn">
