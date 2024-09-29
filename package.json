@@ -8,10 +8,15 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.7.7",
+    "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "konva": "^9.3.15",
     "owl.carousel": "^2.3.4",
     "react": "^18.3.1",
+<<<<<<< HEAD
+=======
+    "react-bootstrap": "^2.10.5",
+>>>>>>> 263f583d7adad24cf5188d613372d661edf0c7a7
     "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
