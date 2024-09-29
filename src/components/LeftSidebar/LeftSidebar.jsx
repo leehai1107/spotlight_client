@@ -17,7 +17,7 @@ const LeftSidebar = ({ menuItems }) => {
   };
 
   return (
-    <div
+    <nav
       className={`vertical_nav ${isNavOpened ? "vertical_nav__opened" : ""} ${
         isMenuMinified ? "vertical_nav__minify" : ""
       }`}
@@ -45,7 +45,7 @@ const LeftSidebar = ({ menuItems }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </nav>
   );
 };
 

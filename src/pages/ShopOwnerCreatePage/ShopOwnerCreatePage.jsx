@@ -1,5 +1,6 @@
 import React from "react";
 
-export default function ShopOwnerPage() {
+export default function ShopOwnerCreatePage() {
+  // TODO: 
   return <div>ShopOwnerPage</div>;
 }
