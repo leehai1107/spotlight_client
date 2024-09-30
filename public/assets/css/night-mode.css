@@ -1306,14 +1306,6 @@ Night Mood
     background: rgba(255, 255, 255, 0.1) !important;
 }
 
-.night-mode {}
-
-.night-mode {}
-
-.night-mode {}
-
-.night-mode {}
-
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) {
@@ -1389,4 +1381,3 @@ Night Mood
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {}
-}
