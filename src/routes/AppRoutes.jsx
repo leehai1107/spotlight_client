@@ -33,6 +33,9 @@ export default function AppRoutes() {
                 <Route path="signup" element={<SignUpPage />} />
                 <Route path="signin" element={<SignInPage />} />
               </Route>
+              <Route path="/" element={<ManagerLayout />}>
+                <Route path="shop_owner_product" element={<ShopOwnerCreatePage />} />
+              </Route>
             </>
           ) : auth?.role_id === 1 ? (
             // Admin
