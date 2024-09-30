@@ -13,10 +13,7 @@
     "konva": "^9.3.15",
     "owl.carousel": "^2.3.4",
     "react": "^18.3.1",
-<<<<<<< HEAD
-=======
     "react-bootstrap": "^2.10.5",
->>>>>>> 263f583d7adad24cf5188d613372d661edf0c7a7
     "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
     "react-draggable": "^4.4.6",
@@ -55,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "tailwindcss": "^3.4.11"
   }
 }
