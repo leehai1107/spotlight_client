@@ -13,6 +13,8 @@ import ManagerLayout from "../layouts/ManagerLayout/ManagerLayout";
 import AccountManagerPage from "../pages/AccountManagerPage/AccountManagerPage";
 import ShopOwnerCreatePage from "../pages/ShopOwnerCreatePage/ShopOwnerCreatePage";
 import ProductCustomizePage from "../pages/ProductCustomizePage/ProductCustomizePage.jsx";
+import CartPage from "../pages/CartPage/CartPage.jsx";
+import ViewOrderPage from "../pages/ViewOrderPage/ViewOrderPage.jsx";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -27,6 +29,7 @@ export default function AppRoutes() {
                 <Route index element={<LandingPage />} />
                 <Route path="about_us" element={<AboutUsPage />} />
                 <Route path="customize" element={<ProductCustomizePage />} />
+                <Route path="cart" element={<CartPage />} />
               </Route>
               {/* <BlankLayout /> for signup and signin because no need header or footer */}
               <Route path="/" element={<BlankLayout />}>
@@ -54,6 +57,9 @@ export default function AppRoutes() {
               <Route path="/" element={<MainLayout />}>
                 <Route index element={<LandingPage />} />
                 <Route path="about_us" element={<AboutUsPage />} />
+                <Route path="customize" element={<ProductCustomizePage />} />
+                <Route path="cart" element={<CartPage />} />
+                <Route path="view_orders" element={<ViewOrderPage />} />
               </Route>
             </>
           ) : (
