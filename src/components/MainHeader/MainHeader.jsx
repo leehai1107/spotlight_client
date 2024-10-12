@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import DropdownProfile from "../DropdownProfile/DropdownProfile";
+import { useSelector } from "react-redux";
 
 export default function MainHeader() {
   const token = localStorage.getItem("token");
   const navigate = useNavigate();
   const [isNightMode, setIsNightMode] = useState(false);
+  const cartItems = useSelector((state) => state.cart.cartItems);
 
   // Load the night mode state from localStorage on mount
   useEffect(() => {
@@ -85,14 +87,7 @@ export default function MainHeader() {
                     </div>
                   </div>
                 ) : (
-                  <>
-                    <div className="create-bg">
-                      <a href={"/cart"} className="offcanvas-create-btn">
-                        <strong>GIỎ HÀNG 🛒</strong>
-                        <span>(0)</span>
-                      </a>
-                    </div>
-                  </>
+                  <></>
                 )}
                 <ul className="navbar-nav justify-content-end flex-grow-1 pe_5">
                   <li className="nav-item">
@@ -206,7 +201,7 @@ export default function MainHeader() {
                 <li>
                   <Link to="/cart" className="create-btn btn-hover">
                     <strong>GIỎ HÀNG 🛒</strong>
-                    <span>(0)</span>
+                    <span>({cartItems.length})</span>
                   </Link>
                 </li>
 
