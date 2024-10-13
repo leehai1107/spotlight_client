@@ -840,10 +840,24 @@ body {
 
 .main-btn {
   font-size: 16px;
-  color: #fff;
-  font-weight: 400;
+  color: #181818;
+  font-weight: bold;
   text-align: center;
   background: var(--main-color);
+  height: 50px;
+  display: inline-block;
+  line-height: 49px;
+  padding: 0 30px;
+  border-radius: 3px;
+  border: 1px solid var(--main-color);
+}
+
+.main-btn-secondary {
+  font-size: 16px;
+  color: #181818;
+  font-weight: bold;
+  text-align: center;
+  background: #F8F8F8;
   height: 50px;
   display: inline-block;
   line-height: 49px;
@@ -1155,6 +1169,63 @@ body {
   border-radius: 30px;
   transition: all 0.4s;
 }
+
+.trash-icon {
+  color: #F8F8F8;
+  font-size: 20px;
+  position: absolute;
+  z-index: 101;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  background-color: #dc3545;
+  display: block;
+  height: 45px;
+  width: 45px;
+  line-height: 46px;
+  border-radius: 30px;
+  transition: all 0.4s;
+}
+
+.trash-icon:before,
+.trash-icon:after {
+  transition: opacity 0.3s, transform 0.4s cubic-bezier(0, -0.41, 0.19, 2.5);
+  font-family: "Font Awesome 6 Free";
+  position: absolute;
+  right: 0;
+  left: 0;
+  text-align: center;
+  top: 0px;
+}
+
+.trash-icon:before {
+  content: "\f014";
+  /* Trash icon code from Font Awesome */
+  transform: scale(0.95);
+}
+
+.trash-icon:after {
+  content: "\f014";
+  opacity: 0;
+  transform: scale(0.3);
+  font-weight: 900;
+}
+
+.trash-icon.hovered:after {
+  opacity: 1;
+  transform: scale(0.95);
+}
+
+.trash-icon:hover {
+  background-color: var(--blackground-color);
+  /* Use a danger color (like red) for delete action */
+  color: #fff;
+}
+
+.trash-icon.hovered:before {
+  opacity: 0;
+}
+
 
 .bookmark-icon:before,
 .bookmark-icon:after {
@@ -2430,6 +2501,12 @@ input:checked+.slider .option-right {
   font-weight: 600;
 }
 
+.order-total-dt2 {
+  width: 100%;
+  color: #717171;
+  font-weight: 400;
+}
+
 .order-total-dt div {
   font-size: 16px;
   margin-bottom: 20px;
@@ -2442,6 +2519,16 @@ input:checked+.slider .option-right {
 .order-text {
   color: #000;
 }
+
+.order-text2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  font-size: 16px;
+  color: #000;
+}
+
 
 .ttl-clr {
   color: #000;
