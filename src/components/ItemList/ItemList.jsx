@@ -1,8 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ItemTag from "../ItemTag/ItemTag";
 import Item from "../Item/Item";
+import { getItemsAPI } from "../../apis/items";
 
 export default function ItemList() {
+
+  const [items, setItems]= useState([]);
+  const fetchItems = async () => {
+    try {
+      const response = await getItemsAPI();
+      setItems(response.items);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
+
   return (
     <div className="explore-events p-80">
       <div className="container">
@@ -20,14 +36,9 @@ export default function ItemList() {
             </div>
           </div>
           <div className="row" data-ref="event-filter-content">
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
-            <Item />
+            {items.map((item) => (
+              <Item key={item._id} data={item} />
+            ))}
             <div className="browse-btn mt-5">
               <a href="explore_events.html" className="main-btn btn-hover ">
                 Xem Thêm
