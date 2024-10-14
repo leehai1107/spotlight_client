@@ -30,3 +30,14 @@ export const sellerRegisterAPI = async (data) => {
     console.log(error);
   }
 };
+
+export const getUsersAPI = async (page, limit) => {
+  try {
+    const response = await axiosClient.get(`/users?page=${page}&limit=${limit}`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
