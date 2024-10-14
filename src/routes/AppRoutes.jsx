@@ -46,6 +46,7 @@ export default function AppRoutes() {
             <>
               <Route path="/" element={<ManagerLayout />}>
                 <Route index element={<AccountManagerPage />} />
+                <Route path="approve_account" element={<AccountManagerPage />} />
               </Route>
             </>
           ) : auth?.role_id === 2 ? (

@@ -1,0 +1,54 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    margin: 0 5px;
+  }
+
+  .multi-select-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #007bff; /* Change the color of the checkbox */
+}
+
+.multi-select-checkbox:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.multi-select-checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.export-btn {
+  margin-right: 10px;
+}
+  
+  .account-details-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .account-details-modal h2 {
+    margin-top: 0;
+  }
+  
+  .account-details-modal button {
+    display: block;
+    margin: 0 auto;
+  }
