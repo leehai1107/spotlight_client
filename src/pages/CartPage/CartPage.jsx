@@ -51,6 +51,8 @@ export default function CartPage() {
       customer_phone: phoneNumber,
       items: cartItems.map((item) => ({
         item_id: item.item_id,
+        item_name: item.name,
+        item_price: item.price,
         item_quantity: item.selectedQuantity,
         color_id: item.selectedColor.color_id,
         size_id: item.selectedSize.size_id,
