@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "spotlight-project-exe201",
+    "staging": "spotlight-project-exe201"
+  },
+  "targets": {},
+  "etags": {}
+}

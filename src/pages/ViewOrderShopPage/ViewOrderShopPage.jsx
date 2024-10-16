@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { getOrdersByUserAPI } from "../../apis/order";
+import { getOrdersByShopAPI, getOrdersByUserAPI } from "../../apis/order";
 import OrderItem from "../../components/OrderItem/OrderItem";
 
-export default function ViewOrderPage() {
+export default function ViewOrderShopPage() {
   const [orders, setOrders] = useState([]);
   const token = localStorage.getItem("token");
-  let userId = null;
-  if (token) {
-    userId = JSON.parse(atob(token.split(".")[1])).user_id;
-  }
+  const shop_id = JSON.parse(atob(token.split(".")[1])).shop_id;
   const [pagination, setPagination] = useState({
     current_page: 1,
     total_pages: 1,
@@ -16,8 +13,8 @@ export default function ViewOrderPage() {
 
   const getData = async () => {
     try {
-      const response = await getOrdersByUserAPI(
-        userId,
+      const response = await getOrdersByShopAPI(
+        shop_id,
         pagination.current_page,
         10
       );

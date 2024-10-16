@@ -23,7 +23,7 @@
     /* Ensure toolbar is on top */
     background-color: rgba(255, 255, 255, 0.9);
     /* Slight transparency */
-    padding: 20px;
+    padding: 10px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     border: #F9D600 3px solid;
@@ -31,7 +31,7 @@
 
 .toolbar button,
 .toolbar input {
-    margin-bottom: 10px;
+    margin-bottom: 2px;
     display: block;
     width: 100%;
 }
