@@ -18,6 +18,8 @@ import ViewOrderPage from "../pages/ViewOrderPage/ViewOrderPage.jsx";
 import ItemDetailPage from "../pages/ItemDetailPage/ItemDetailPage.jsx";
 import PaymentSuccessPage from "../pages/PaymentResultPage/PaymentSuccessPage.jsx";
 import PaymentFailurePage from "../pages/PaymentResultPage/PaymentFailurePage.jsx";
+import BuyNowPage from "../pages/BuyNowPage/BuyNowPage.jsx";
+import CustomizeCheckoutPage from "../pages/CustomizeCheckoutPage/CustomizeCheckoutPage.jsx";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -46,7 +48,10 @@ export default function AppRoutes() {
             <>
               <Route path="/" element={<ManagerLayout />}>
                 <Route index element={<AccountManagerPage />} />
-                <Route path="approve_account" element={<AccountManagerPage />} />
+                <Route
+                  path="approve_account"
+                  element={<AccountManagerPage />}
+                />
               </Route>
             </>
           ) : auth?.role_id === 2 ? (
@@ -64,10 +69,15 @@ export default function AppRoutes() {
                 <Route path="about_us" element={<AboutUsPage />} />
                 <Route path="customize" element={<ProductCustomizePage />} />
                 <Route path="cart" element={<CartPage />} />
+                <Route path="buy_now" element={<BuyNowPage />} />
                 <Route path="view_orders" element={<ViewOrderPage />} />
                 <Route path="paymentSuccess" element={<PaymentSuccessPage />} />
                 <Route path="paymentFail" element={<PaymentFailurePage />} />
                 <Route path="items/:itemId" element={<ItemDetailPage />} />
+                <Route
+                  path="customizeCheckout"
+                  element={<CustomizeCheckoutPage />}
+                />
               </Route>
             </>
           ) : (
