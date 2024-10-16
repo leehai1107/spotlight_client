@@ -1,6 +1,14 @@
 import React, { useState, useRef, useEffect, Fragment } from "react";
 import Draggable from "react-draggable";
 import { Stage, Layer, Image, Transformer } from "react-konva";
+import { useDispatch, useSelector } from "react-redux";
+import { clearItem } from "../../redux/slice/canvasSlice";
+import { selectCustomizeItem } from "../../redux/slice/customizeSlice";
+import {
+  deleteImage,
+  uploadImageBase64,
+} from "../../services/firebase/UploadImageSvc";
+import { useNavigate } from "react-router-dom";
 
 const ImageCanvas = ({
   shapeProps,
@@ -82,12 +90,19 @@ const ImageCanvas = ({
   );
 };
 
-const CanvasArea = () => {
+export default function CanvasArea() {
   const [width, setWidth] = useState(100);
   const [height, setHeight] = useState(100);
   const [images, setImages] = useState([]);
   const [selectedId, selectShape] = useState(null);
   const [isToolbarExpanded, setIsToolbarExpanded] = useState(true);
+  const selectedItem = useSelector((state) => state.canvas.selectedItem); // Get the selected item from Redux
+  const [customizationDetails, setCustomizationDetails] = useState([]);
+  const dispatch = useDispatch();
+  // Create a reference for the Stage
+  const stageRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver((event) => {
@@ -95,7 +110,41 @@ const CanvasArea = () => {
       setHeight(event[0].contentBoxSize[0].blockSize);
     });
     resizeObserver.observe(document.getElementById("canvas"));
-  }, []);
+
+    if (selectedItem) {
+      const img = new window.Image();
+      img.crossOrigin = "anonymous"; // Allow cross-origin image loading
+      img.src = selectedItem.image_url;
+      img.onload = () => {
+        const imgWidth = img.width;
+        const imgHeight = img.height;
+        const canvasWidth = width;
+        const canvasHeight = height;
+        const aspectRatio = imgWidth / imgHeight;
+        let newWidth, newHeight;
+        if (canvasWidth / canvasHeight > aspectRatio) {
+          newHeight = canvasHeight * 1;
+          newWidth = newHeight * aspectRatio;
+        } else {
+          newWidth = canvasWidth * 1;
+          newHeight = newWidth / aspectRatio;
+        }
+        const centerX = (canvasWidth - newWidth) / 2;
+        const centerY = (canvasHeight - newHeight) / 2;
+        setImages((prevImages) => [
+          ...prevImages,
+          {
+            img,
+            id: -1,
+            x: centerX,
+            y: centerY,
+            width: newWidth,
+            height: newHeight,
+          },
+        ]);
+      };
+    }
+  }, [selectedItem]);
 
   const checkDeselect = (e) => {
     const clickedOnEmpty = e.target === e.target.getStage();
@@ -113,6 +162,7 @@ const CanvasArea = () => {
     const reader = new FileReader();
     reader.onload = () => {
       const img = new window.Image();
+      img.crossOrigin = "anonymous"; // Allow cross-origin image loading
       img.src = reader.result;
       img.onload = () => {
         const imgWidth = img.width;
@@ -141,10 +191,19 @@ const CanvasArea = () => {
             height: newHeight,
           },
         ]);
+
+        setCustomizationDetails((prevDetails) => [
+          ...prevDetails,
+          {
+            id: prevDetails.length + 1,
+            description: `Phụ kiện`,
+            image: reader.result,
+            price_adjustment: 50000,
+          },
+        ]);
       };
     };
     reader.readAsDataURL(e.target.files[0]);
-    // Clear the input
     e.target.value = null;
   };
 
@@ -153,6 +212,21 @@ const CanvasArea = () => {
   };
 
   const handleDelete = () => {
+    // if the image is selected have id same as selectedItem.item_id
+    if (selectedId === -1) {
+      dispatch(clearItem());
+    }
+    //  delete the image from firebase if the image is selected and id is not -1
+    if (selectedId !== -1) {
+      deleteImage(selectedItem.image_url);
+    }
+
+    if (customizationDetails.length === 1) {
+      setCustomizationDetails([]);
+    }
+    setCustomizationDetails((prevDetails) =>
+      prevDetails.filter((detail) => detail.id !== selectedId)
+    );
     setImages((prevImages) =>
       prevImages.filter((image) => image.id !== selectedId)
     );
@@ -193,6 +267,46 @@ const CanvasArea = () => {
     }
   };
 
+  const handleOrderButton = async () => {
+    try {
+      // Capture the canvas image
+      const canvasImage = stageRef.current.toDataURL();
+
+      // Upload the canvas image and get the URL
+      const finalImageUrl = await uploadImageBase64(
+        canvasImage,
+        `final_images`
+      );
+
+      const customizations = await Promise.all(
+        customizationDetails.map(async (detail) => {
+          // Upload the image and get the URL
+          const imageUrl = await uploadImageBase64(
+            detail.image,
+            `customizations`
+          );
+          return {
+            description: detail.description,
+            image_url: imageUrl,
+            price_adjustment: detail.price_adjustment,
+          };
+        })
+      );
+
+      dispatch(
+        selectCustomizeItem({
+          ...selectedItem,
+          customizations: customizations,
+          image_final: finalImageUrl,
+        })
+      );
+
+      navigate("/customizeCheckout");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="canvas-container" id="canvas">
       <Draggable cancel=".toolbar-button">
@@ -206,65 +320,140 @@ const CanvasArea = () => {
             />
             {selectedId && (
               <>
-                <button className="toolbar-button" onClick={bringToFront}>
-                  Bring to Front
+                <button
+                  className="main-btn-third-v2 toolbar-button"
+                  onClick={bringToFront}
+                >
+                  Đem lên đầu
                 </button>
-                <button className="toolbar-button" onClick={bringToBack}>
-                  Bring to Back
+                <button
+                  className="main-btn-third-v2 toolbar-button"
+                  onClick={bringToBack}
+                >
+                  Đem xuống cùng
                 </button>
-                <button className="toolbar-button" onClick={bringUpOneLayer}>
-                  Bring Up Layer
+                <button
+                  className="main-btn-third-v2 toolbar-button"
+                  onClick={bringUpOneLayer}
+                >
+                  Đem lên 1 lớp
                 </button>
-                <button className="toolbar-button" onClick={bringDownOneLayer}>
-                  Bring Down Layer
+                <button
+                  className="main-btn-third-v2 toolbar-button"
+                  onClick={bringDownOneLayer}
+                >
+                  Đem xuống 1 lớp
                 </button>
-                <button className="delete-button" onClick={handleDelete}>
-                  Delete Selected Image
+                <button
+                  className="main-btn-third-v2 delete-button"
+                  onClick={handleDelete}
+                >
+                  Xóa đối tượng đã chọn
                 </button>
               </>
             )}
-            <button className="toolbar-button" onClick={toggleToolbar}>
-              Close Toolbar
+            <button
+              className="main-btn-third-v2 toolbar-button"
+              onClick={toggleToolbar}
+            >
+              Đóng thanh công cụ
             </button>
           </div>
         ) : (
           <div className="toolbar">
-            <button className="toolbar-button" onClick={toggleToolbar}>
-              Open Toolbar
+            <button
+              className="main-btn-third toolbar-button"
+              onClick={toggleToolbar}
+            >
+              Mở thanh công cụ
             </button>
           </div>
         )}
       </Draggable>
-      <Stage
-        width={width}
-        height={height}
-        onMouseDown={checkDeselect}
-        onTouchStart={checkDeselect}
-      >
-        <Layer>
-          {images.map((image) => (
-            <ImageCanvas
-              key={image.id}
-              shapeProps={image}
-              isSelected={image.id === selectedId}
-              onSelect={() => handleSelect(image.id)}
-              onChange={(newAttrs) => {
-                const newImages = images.map((img) => {
-                  if (img.id === newAttrs.id) {
-                    return newAttrs;
-                  }
-                  return img;
-                });
-                setImages(newImages);
-              }}
-              canvasWidth={width} // Pass canvas width
-              canvasHeight={height} // Pass canvas height
-            />
-          ))}
-        </Layer>
-      </Stage>
+      <Fragment>
+        <Stage
+          width={width}
+          height={height}
+          onMouseDown={checkDeselect}
+          onTouchStart={checkDeselect}
+          ref={stageRef}
+        >
+          <Layer>
+            {images.map((image) => (
+              <ImageCanvas
+                key={image.id}
+                shapeProps={image}
+                isSelected={image.id === selectedId}
+                onSelect={() => handleSelect(image.id)}
+                onChange={(newAttrs) => {
+                  const newImages = images.map((img) => {
+                    if (img.id === newAttrs.id) {
+                      return newAttrs;
+                    }
+                    return img;
+                  });
+                  setImages(newImages);
+                }}
+                canvasWidth={width} // Pass canvas width
+                canvasHeight={height} // Pass canvas height
+              />
+            ))}
+          </Layer>
+        </Stage>
+      </Fragment>
+      <div className="d-flex justify-content-center pt-4">
+        <div className="order-text">
+          <strong>Thông tin chi tiết</strong>
+        </div>
+      </div>
+
+      <div className="d-flex justify-content-center pt-4">
+        <div className="order-total-dt">
+          <div>{selectedItem?.name}</div>
+          <div className="order-number">
+            {selectedItem?.selectedColor || ""}
+          </div>
+          <div className="order-number">{selectedItem?.selectedSize || ""}</div>
+          <div className="order-number">
+            {(selectedItem?.price || 0).toLocaleString("vi-VN") + " VNĐ"}
+          </div>
+        </div>
+      </div>
+      {/* {For CustomizeCount  render items} */}
+      {customizationDetails.map((customization, index) => (
+        <div key={index} className="customization-item">
+          <div className="d-flex justify-content-center">
+            <div className="order-total-dt">
+              <div>{customization?.description}</div>
+              <div className="order-number">
+                {customization.price_adjustment.toLocaleString("vi-VN") +
+                  " VNĐ"}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      <div className="d-flex justify-content-center">
+        <div className="order-total-dt">
+          <div className="order-text">Tạm Tính</div>
+          <div className="order-number">
+            {(
+              (selectedItem?.price || 0) +
+              customizationDetails.length * 50000
+            ).toLocaleString("vi-VN")}{" "}
+            VNĐ
+          </div>
+        </div>
+      </div>
+      <div className="d-flex justify-content-center pt-4">
+        <input
+          type="button"
+          value="Đặt mẫu này"
+          className="main-btn"
+          onClick={() => handleOrderButton()}
+        />
+      </div>
     </div>
   );
-};
-
-export default CanvasArea;
+}

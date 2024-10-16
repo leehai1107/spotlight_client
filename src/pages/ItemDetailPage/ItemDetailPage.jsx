@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getItemByIdAPI } from "../../apis/items";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../redux/slice/cartSlice";
+import { selectBuyNowItem } from "../../redux/slice/buynowSlice";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ItemDetailPage() {
   const { itemId } = useParams();
@@ -10,7 +13,9 @@ export default function ItemDetailPage() {
   const [selectedColor, setSelectedColor] = useState(null);
   const [selectedSize, setSelectedSize] = useState(null);
   const [selectedQuantity, setSelectedQuantity] = useState(1);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+  const token = localStorage.getItem("token");
 
   const fetchItemDetail = async () => {
     try {
@@ -27,12 +32,35 @@ export default function ItemDetailPage() {
 
   const handleAddToCart = () => {
     if (!selectedColor || !selectedSize) {
-      alert("Please select both color and size before adding to cart!");
+      toast.warning("Hãy lựa chọn màu sắc và kích thước cho sản phẩm!");
       return;
     }
 
     dispatch(
       addToCart({
+        ...item,
+        selectedColor,
+        selectedSize,
+        selectedQuantity,
+        stockQuantity: item.quantity,
+      })
+    );
+  };
+
+  const handleBuyNow = () => {
+    if (!selectedColor || !selectedSize) {
+      toast.warning("Hãy lựa chọn màu sắc và kích thước cho sản phẩm!");
+      return;
+    }
+    if (token === null) {
+      navigate("/signin");
+      return;
+    } else {
+      navigate("/buy_now");
+    }
+
+    dispatch(
+      selectBuyNowItem({
         ...item,
         selectedColor,
         selectedSize,
@@ -202,7 +230,11 @@ export default function ItemDetailPage() {
                 <div className="select-tickets-block">
                   <div className="select-ticket-action">
                     <div className="booking-btn">
-                      <a href="#" className="main-btn btn-hover w-100">
+                      <a
+                        href="#"
+                        className="main-btn btn-hover w-100"
+                        onClick={() => handleBuyNow(item)}
+                      >
                         Mua Ngay
                       </a>
                     </div>

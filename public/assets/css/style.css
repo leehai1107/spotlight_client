@@ -866,6 +866,34 @@ body {
   border: 1px solid var(--main-color);
 }
 
+.main-btn-third {
+  font-size: 12px;
+  color: #181818;
+  font-weight: bold;
+  text-align: center;
+  background: var(--main-color);
+  height: 35px;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: 1px solid var(--main-color);
+}
+
+.main-btn-third-v2 {
+  font-size: 12px;
+  color: #181818;
+  font-weight: bold;
+  text-align: center;
+  background: var(--main-color);
+  height: 35px;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: 1px solid var(--main-color);
+}
+
 .main-end-btn {
   font-size: 16px;
   color: #fff;

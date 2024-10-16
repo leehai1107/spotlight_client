@@ -43,3 +43,15 @@ export const getItemByIdAPI = async (id) => {
     console.log(error);
   }
 };
+
+// API Search items by name
+export const searchItemsAPI = async (query, page = 1, limit = 10) => {
+  try {
+    const response = await axiosClient.get(
+      "/items/?item_name=" + query + "&page=" + page + "&limit=" + limit
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
