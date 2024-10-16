@@ -20,6 +20,7 @@ import PaymentSuccessPage from "../pages/PaymentResultPage/PaymentSuccessPage.js
 import PaymentFailurePage from "../pages/PaymentResultPage/PaymentFailurePage.jsx";
 import BuyNowPage from "../pages/BuyNowPage/BuyNowPage.jsx";
 import CustomizeCheckoutPage from "../pages/CustomizeCheckoutPage/CustomizeCheckoutPage.jsx";
+import ViewOrderShopPage from "../pages/ViewOrderShopPage/ViewOrderShopPage";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -59,6 +60,7 @@ export default function AppRoutes() {
             <>
               <Route path="/" element={<ManagerLayout />}>
                 <Route index element={<ShopOwnerCreatePage />} />
+                <Route path="view_orders" element={<ViewOrderShopPage />} />
               </Route>
             </>
           ) : auth?.role_id === 3 ? (
