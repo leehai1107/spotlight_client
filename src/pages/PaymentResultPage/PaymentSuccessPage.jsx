@@ -1,6 +1,8 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function PaymentSuccessPage() {
+  const navigate = useNavigate();
   return (
     <>
       <div className="breadcrumb-block"></div>
@@ -27,7 +29,10 @@ export default function PaymentSuccessPage() {
                       >
                         <i className="fa-brands fa-facebook" />
                       </a>
-                      <a href="https://www.instagram.com/spotlight.graduation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" className="cb-icon">
+                      <a
+                        href="https://www.instagram.com/spotlight.graduation?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                        className="cb-icon"
+                      >
                         <i className="fa-brands fa-instagram" />
                       </a>
                     </div>
@@ -35,7 +40,7 @@ export default function PaymentSuccessPage() {
                   <div className="booking-confirmed-bottom">
                     <div className="booking-confirmed-bottom-bg p_30">
                       <a
-                        href="invoice.html"
+                        href={() => navigate("/view_orders")}
                         className="main-btn btn-hover h_50 w-100 mt-5"
                       >
                         <i className="fa-solid fa-ticket rotate-icon me-3" />
