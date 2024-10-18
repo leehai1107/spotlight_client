@@ -33,3 +33,47 @@ export const getOrdersByShopAPI = async (shop_id, page = 1, limit = 10) => {
     console.log(error);
   }
 };
+
+// API user update order shipping status
+export const updateOrderStatusAPI = async (order_id) => {
+  try {
+    const response = await axiosClient.put(
+      `/orders/user-confirm-shipping/${order_id}/status`
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// API user update order shipping status
+export const updateOrderStatusShopAPI = async (order_id) => {
+  try {
+    const response = await axiosClient.put(
+      `/orders/shop-confirm-shipping/${order_id}/status`
+    );
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// API user update order shipping status
+export const cancelOrderStatusShopAPI = async (order_id) => {
+  try {
+    const response = await axiosClient.put(`/orders/reject/${order_id}/status`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// API user update order shipping status
+export const acceptOrderStatusShopAPI = async (order_id) => {
+  try {
+    const response = await axiosClient.put(`/orders/accept/${order_id}/status`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
