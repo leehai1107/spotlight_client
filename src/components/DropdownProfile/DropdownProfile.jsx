@@ -1,6 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-
 export default function DropdownProfile() {
   const token = localStorage.getItem("token");
   if (!token) {
@@ -10,7 +8,6 @@ export default function DropdownProfile() {
   const firstname = JSON.parse(atob(token.split(".")[1])).firstname;
   const lastname = JSON.parse(atob(token.split(".")[1])).lastname;
   const email = JSON.parse(atob(token.split(".")[1])).email;
-  const navigate = useNavigate();
 
   const logout = () => {
     localStorage.removeItem("token");
@@ -50,7 +47,7 @@ export default function DropdownProfile() {
           <a href="organiser_profile_view.html" className="link-item">
             Hồ Sơ
           </a>
-          <a href={() => navigate("/view_orders")} className="link-item">
+          <a href={"/view_orders"} className="link-item">
             Lịch Sử Mua Hàng
           </a>
           <a href="#" className="link-item" onClick={logout}>
