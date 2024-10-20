@@ -1,0 +1,32 @@
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1729451448859)
++++ b/.idea/vcs.xml	(date 1729451448859)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jsLinters/jshint.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jsLinters/jshint.xml b/.idea/jsLinters/jshint.xml
+new file mode 100644
+--- /dev/null	(date 1729451504029)
++++ b/.idea/jsLinters/jshint.xml	(date 1729451504029)
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="JSHintConfiguration" version="2.13.6" use-config-file="true" use-custom-config-file="true" custom-config-file-path="$PROJECT_DIR$/public/assets/vendor/chartist-plugin-tooltip/test/.jshintrc" />
++</project>
+\ No newline at end of file
