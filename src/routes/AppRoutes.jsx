@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import useAuth from "../services/context/useAuth";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -21,73 +21,80 @@ import PaymentFailurePage from "../pages/PaymentResultPage/PaymentFailurePage.js
 import BuyNowPage from "../pages/BuyNowPage/BuyNowPage.jsx";
 import CustomizeCheckoutPage from "../pages/CustomizeCheckoutPage/CustomizeCheckoutPage.jsx";
 import ViewOrderShopPage from "../pages/ViewOrderShopPage/ViewOrderShopPage";
+import ManagerDashboardPage from "../pages/ManagerDashboardPage/ManagerDashboardPage";
+import ShopOwnerDashboardPage from "../pages/ShopOwnerDashboardPage/ShopOwnerDashboardPage";
 
 export default function AppRoutes() {
-  const { auth } = useAuth();
+    const {auth} = useAuth();
 
-  return (
-    <>
-      <ScrollToTop>
-        <Routes>
-          {!auth?.role_id ? (
-            <>
-              <Route path="/" element={<MainLayout />}>
-                <Route index element={<LandingPage />} />
-                <Route path="about_us" element={<AboutUsPage />} />
-                <Route path="customize" element={<ProductCustomizePage />} />
-                <Route path="cart" element={<CartPage />} />
-                <Route path="items/:itemId" element={<ItemDetailPage />} />
-              </Route>
-              {/* <BlankLayout /> for signup and signin because no need header or footer */}
-              <Route path="/" element={<BlankLayout />}>
-                <Route path="signup" element={<SignUpPage />} />
-                <Route path="signin" element={<SignInPage />} />
-              </Route>
-            </>
-          ) : auth?.role_id === 1 ? (
-            // Admin
-            <>
-              <Route path="/" element={<ManagerLayout />}>
-                <Route index element={<AccountManagerPage />} />
-                <Route
-                  path="approve_account"
-                  element={<AccountManagerPage />}
-                />
-              </Route>
-            </>
-          ) : auth?.role_id === 2 ? (
-            // Shop Owner
-            <>
-              <Route path="/" element={<ManagerLayout />}>
-                <Route index element={<ShopOwnerCreatePage />} />
-                <Route path="view_orders" element={<ViewOrderShopPage />} />
-              </Route>
-            </>
-          ) : auth?.role_id === 3 ? (
-            // Customer
-            <>
-              <Route path="/" element={<MainLayout />}>
-                <Route index element={<LandingPage />} />
-                <Route path="about_us" element={<AboutUsPage />} />
-                <Route path="customize" element={<ProductCustomizePage />} />
-                <Route path="cart" element={<CartPage />} />
-                <Route path="buy_now" element={<BuyNowPage />} />
-                <Route path="view_orders" element={<ViewOrderPage />} />
-                <Route path="paymentSuccess" element={<PaymentSuccessPage />} />
-                <Route path="paymentFail" element={<PaymentFailurePage />} />
-                <Route path="items/:itemId" element={<ItemDetailPage />} />
-                <Route
-                  path="customizeCheckout"
-                  element={<CustomizeCheckoutPage />}
-                />
-              </Route>
-            </>
-          ) : (
-            <></>
-          )}
-          <Route path="*" element={<ErrorPage />} />
-        </Routes>
-      </ScrollToTop>
-    </>
-  );
+    return (
+        <>
+            <ScrollToTop>
+                <Routes>
+                    {!auth?.role_id ? (
+                        <>
+                            <Route path="/" element={<MainLayout/>}>
+                                <Route index element={<LandingPage/>}/>
+                                <Route path="about_us" element={<AboutUsPage/>}/>
+                                <Route path="customize" element={<ProductCustomizePage/>}/>
+                                <Route path="cart" element={<CartPage/>}/>
+                                <Route path="items/:itemId" element={<ItemDetailPage/>}/>
+                            </Route>
+                            {/* <BlankLayout /> for signup and signin because no need header or footer */}
+                            <Route path="/" element={<BlankLayout/>}>
+                                <Route path="signup" element={<SignUpPage/>}/>
+                                <Route path="signin" element={<SignInPage/>}/>
+                            </Route>
+                        </>
+                    ) : auth?.role_id === 1 ? (
+                        // Admin
+                        <>
+                            <Route path="/" element={<ManagerLayout/>}>
+                                <Route index element={<AccountManagerPage/>}/>
+                                <Route
+                                    path="approve_account"
+                                    element={<AccountManagerPage/>}
+                                />
+                                <Route
+                                    path="my_organisation_dashboard"
+                                    element={<ManagerDashboardPage/>}
+                                />
+                            </Route>
+                        </>
+                    ) : auth?.role_id === 2 ? (
+                        // Shop Owner
+                        <>
+                            <Route path="/" element={<ManagerLayout/>}>
+                                <Route index element={<ShopOwnerCreatePage/>}/>
+                                <Route path="view_orders" element={<ViewOrderShopPage/>}/>
+                                <Route path="my_organisation_dashboard" element={<ShopOwnerDashboardPage/>}/>
+                            </Route>
+                        </>
+                    ) : auth?.role_id === 3 ? (
+                        // Customer
+                        <>
+                            <Route path="/" element={<MainLayout/>}>
+                                <Route index element={<LandingPage/>}/>
+                                <Route path="about_us" element={<AboutUsPage/>}/>
+                                <Route path="customize" element={<ProductCustomizePage/>}/>
+                                <Route path="cart" element={<CartPage/>}/>
+                                <Route path="buy_now" element={<BuyNowPage/>}/>
+                                <Route path="view_orders" element={<ViewOrderPage/>}/>
+                                <Route path="paymentSuccess" element={<PaymentSuccessPage/>}/>
+                                <Route path="paymentFail" element={<PaymentFailurePage/>}/>
+                                <Route path="items/:itemId" element={<ItemDetailPage/>}/>
+                                <Route
+                                    path="customizeCheckout"
+                                    element={<CustomizeCheckoutPage/>}
+                                />
+                            </Route>
+                        </>
+                    ) : (
+                        <></>
+                    )}
+                    <Route path="*" element={<ErrorPage/>}/>
+                </Routes>
+            </ScrollToTop>
+        </>
+    );
 }
