@@ -1,5 +1,4 @@
 import React from "react";
-
 export default function DropdownProfile() {
   const token = localStorage.getItem("token");
   if (!token) {
@@ -47,6 +46,9 @@ export default function DropdownProfile() {
         <li className="profile-link">
           <a href="organiser_profile_view.html" className="link-item">
             Hồ Sơ
+          </a>
+          <a href={"/view_orders"} className="link-item">
+            Lịch Sử Mua Hàng
           </a>
           <a href="#" className="link-item" onClick={logout}>
             Đăng Xuất

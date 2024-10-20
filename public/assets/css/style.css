@@ -894,6 +894,36 @@ body {
   border: 1px solid var(--main-color);
 }
 
+.main-btn-third-v3 {
+  font-size: 12px;
+  color: #181818;
+  font-weight: bold;
+  text-align: center;
+  background: #24b53a;
+  height: 35px;
+  width: 8.5rem;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: 1px solid #24b53a;
+}
+
+.main-btn-third-v4 {
+  font-size: 12px;
+  color: #181818;
+  font-weight: bold;
+  text-align: center;
+  background: #d52d2d;
+  height: 35px;
+  width: 8.5rem;
+  display: inline-block;
+  line-height: 34px;
+  padding: 0 15px;
+  border-radius: 3px;
+  border: 1px solid #d52d2d;
+}
+
 .main-end-btn {
   font-size: 16px;
   color: #fff;

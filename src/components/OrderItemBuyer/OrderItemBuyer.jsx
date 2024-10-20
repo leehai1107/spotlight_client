@@ -1,9 +1,13 @@
 import { Image } from "antd";
 import React, { useState } from "react";
-import { updateOrderStatusAPI } from "../../apis/order";
+import {
+  acceptOrderStatusShopAPI,
+  cancelOrderStatusShopAPI,
+  updateOrderStatusShopAPI,
+} from "../../apis/order";
 import { convertUnixToDateTime } from "../../utils/time";
 
-export default function OrderItem({ order }) {
+export default function OrderItemBuyer({ order }) {
   const [showDetails, setShowDetails] = useState(false);
 
   const toggleDetails = () => {
@@ -50,7 +54,24 @@ export default function OrderItem({ order }) {
 
   const handleUpdateShippingStatus = async () => {
     try {
-      const response = await updateOrderStatusAPI(order.order_id);
+      const response = await updateOrderStatusShopAPI(order.order_id);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const handleUpdateOrderStatus = async () => {
+    try {
+      const response = await cancelOrderStatusShopAPI(order.order_id);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleUpdateOrderStatusAccept = async () => {
+    try {
+      const response = await acceptOrderStatusShopAPI(order.order_id);
       console.log(response);
     } catch (error) {
       console.log(error);
@@ -95,6 +116,23 @@ export default function OrderItem({ order }) {
             {order.order_status === "0" && (
               <p className="text-danger">{order.response}</p>
             )}
+            {order.order_status === null && order.payment_status === "1" && (
+              <>
+                <button
+                  className="main-btn-third-v3 overflow-hidden"
+                  onClick={handleUpdateOrderStatusAccept}
+                >
+                  Xác nhận đơn
+                </button>
+                <button
+                  className="main-btn-third-v4 overflow-hidden"
+                  onClick={handleUpdateOrderStatus}
+                >
+                  Từ chối đơn
+                </button>
+              </>
+            )}
+            
           </div>
           <div className="col-md-2">
             <p className="mb-1">
@@ -111,16 +149,14 @@ export default function OrderItem({ order }) {
             <span className={`badge ${shippingStatus.className}`}>
               {shippingStatus.label}
             </span>
-            {order.shipping_status === "0" &&
-              order.order_status === "1" &&
-              order.payment_status === "1" && (
-                <button
-                  className="main-btn-third btn-primary ms-auto"
-                  onClick={handleUpdateShippingStatus}
-                >
-                  Đã nhận được hàng
-                </button>
-              )}
+            {order.order_status === "1" && order.payment_status === "1" && (
+              <button
+                className="main-btn-third overflow-hidden"
+                onClick={handleUpdateShippingStatus}
+              >
+                Giao đơn hàng
+              </button>
+            )}
           </div>
         </div>
         <button

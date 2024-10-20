@@ -1,7 +1,7 @@
 // Sample Menu Items
 export const menuItems = [
   {
-    link: "my_organisation_dashboard.html",
+    link: "my_organisation_dashboard",
     title: "Dashboard",
     icon: "fa-gauge",
     label: "Dashboard",

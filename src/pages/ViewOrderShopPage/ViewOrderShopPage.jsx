@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getOrdersByShopAPI, getOrdersByUserAPI } from "../../apis/order";
-import OrderItem from "../../components/OrderItem/OrderItem";
+import { useSelector } from "react-redux";
+import { getOrdersByShopAPI } from "../../apis/order";
+import OrderItemBuyer from "../../components/OrderItemBuyer/OrderItemBuyer";
 
 export default function ViewOrderShopPage() {
   const [orders, setOrders] = useState([]);
@@ -38,12 +39,21 @@ export default function ViewOrderShopPage() {
   useEffect(() => {
     getData();
   }, [pagination.current_page]);
+
+  const isMenuMinified = useSelector((state) => state.menu.isMenuMinified);
+
   return (
-    <div className="wrapper">
-      <div className="hero-banner">
-        <div className="container">
+    <div
+      className={
+        "wrapper wrapper-body " + (isMenuMinified ? " wrapper__minify" : "")
+      }
+    >
+      <div
+        className="container"
+        style={{ width: "100%", padding: "20px", paddingTop: "80px" }}
+      >
           {orders.map((order) => (
-            <OrderItem key={order.id} order={order} />
+            <OrderItemBuyer key={order.id} order={order} />
           ))}
           {/* Pagination Controls */}
           <div className="pagination-controls d-flex gap-2">
@@ -74,6 +84,5 @@ export default function ViewOrderShopPage() {
           </div>
         </div>
       </div>
-    </div>
   );
 }
