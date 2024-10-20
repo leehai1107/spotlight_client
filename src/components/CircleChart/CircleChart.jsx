@@ -48,7 +48,7 @@ export default function CircleChart() {
     };
 
     return (
-        <div className='mt-5 d-flex justify-content-center ml-10' style={{ height: '40%', width: '40%' }}>
+        <div className='mt-5 d-flex justify-content-center' style={{ height: '30%', width: '30%', marginLeft: '6em' }}>
             <Doughnut data={data} options={options} />
         </div>
     );
