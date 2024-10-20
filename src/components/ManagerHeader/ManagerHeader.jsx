@@ -163,7 +163,7 @@ export default function ManagerHeader() {
               <div className="right-header order-2">
                 <ul className="align-self-stretch">
                   <li>
-                    <a href="create.html" className="create-btn btn-hover">
+                    <a href={"/create"} className="create-btn btn-hover">
                       <i className="fa-solid fa-calendar-days" />
 
                       <span>Thêm Sản Phẩm</span>
