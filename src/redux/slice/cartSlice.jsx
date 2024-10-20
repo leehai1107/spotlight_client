@@ -75,7 +75,6 @@ const cartSlice = createSlice({
     },
     // Clear cart payment and keep the items not paid in the cart
     clearCartPayment: (state) => {
-      // TODO: Implement this
       if (state.cartItems.length === 0) {
         toast.warning(`Giỏ hàng hiện đang trống!`);
       } else {

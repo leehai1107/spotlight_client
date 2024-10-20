@@ -42,7 +42,7 @@ export default function CircleChart() {
             },
             title: {
                 display: true,
-                text: 'Doughnut Chart Example',
+                text: 'Doughnut Chart',
             },
         },
     };

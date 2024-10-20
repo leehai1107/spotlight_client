@@ -5,7 +5,6 @@ import { collapseMenu, toggleMenu } from "../../redux/slice/menuSlice";
 import { menuItems } from ".";
 import DropdownProfileManager from "../DropdownProfileManager/DropdownProfileManager";
 
-
 export default function ManagerHeader() {
   const [isNightMode, setIsNightMode] = useState(false);
 
@@ -110,16 +109,12 @@ export default function ManagerHeader() {
                         <i className="fa-solid fa-calendar-days" />
 
                         <span>Thêm Sản Phẩm</span>
-
                       </a>
                     </div>
                   </div>
                   <ul className="navbar-nav justify-content-end flex-grow-1 pe_5">
                     <li className="nav-item">
-                      <a
-                        className="nav-link"
-                        href="organiser_profile_view.html"
-                      >
+                      <a className="nav-link" href={"/"}>
                         <i className="fa-solid fa-right-left me-2" />
                         Trang Chủ
                       </a>
