@@ -105,7 +105,7 @@ export default function ManagerHeader() {
                 <div className="offcanvas-body">
                   <div className="offcanvas-top-area">
                     <div className="create-bg">
-                      <a href="create.html" className="offcanvas-create-btn">
+                      <a href={"/create"} className="offcanvas-create-btn">
                         <i className="fa-solid fa-calendar-days" />
 
                         <span>Thêm Sản Phẩm</span>
