@@ -65,7 +65,7 @@
 
 .statistic-box:last-child .statistic-box-content_money,
 .statistic-box:last-child .statistic-box-content_description,
-.statistic-box:last-child .statistic-box-icon mat-icon {
+.statistic-box:last-child .statistic-box-icon {
     color: var(--secondary-color);
 }
 
