@@ -23,7 +23,7 @@ export default function ManagerDashboardPage() {
       // Calculate total revenue for the month
       if (monthResponse && monthResponse.weeks) {
         const totalMonthRevenue = monthResponse.weeks.reduce((acc, week) => {
-          return acc + (week.totalRevenue * (5 / 100));
+          return acc + week.totalRevenue * (5 / 100);
         }, 0);
         setMonthRevenue(totalMonthRevenue); // Update state with calculated total revenue
       }
@@ -35,7 +35,7 @@ export default function ManagerDashboardPage() {
       }
 
       if (response) {
-        setTodayRevenue(response.totalRevenueToday || 0);
+        setTodayRevenue(response.totalRevenueToday * (5 / 100) || 0);
         setTodayOrder(response.orderCountToday);
       } else {
         console.log("Error: Invalid response data");
