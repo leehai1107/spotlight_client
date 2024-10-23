@@ -193,7 +193,7 @@ export default function ShopOwnerCreatePage() {
 
   const fetchData = async () => {
     try {
-      const response = await getItemsByShopAPI(shop_id);
+      const response = await getItemsByShopAPI(shop_id, 1, 100);
       setProducts(response.items);
       const categories = await getCategoriesAPI();
       setCategories(categories);
