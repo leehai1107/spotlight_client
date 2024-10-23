@@ -37,7 +37,10 @@ export default function PaymentSuccessPage() {
                       </a>
                     </div>
                   </div>
-                  <div className="booking-confirmed-bottom">
+                  <div
+                    className="booking-confirmed-bottom"
+                    onClick={() => navigate("/view_orders")}
+                  >
                     <div className="booking-confirmed-bottom-bg p_30">
                       <a
                         href={() => navigate("/view_orders")}
