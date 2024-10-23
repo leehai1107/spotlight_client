@@ -4,11 +4,10 @@ import Item from "../Item/Item";
 import { getItemsAPI } from "../../apis/items";
 
 export default function ItemList() {
-
-  const [items, setItems]= useState([]);
+  const [items, setItems] = useState([]);
   const fetchItems = async () => {
     try {
-      const response = await getItemsAPI();
+      const response = await getItemsAPI(1, 12);
       setItems(response.items);
     } catch (error) {
       console.error("Error fetching data:", error);
