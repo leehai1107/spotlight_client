@@ -34,7 +34,7 @@ axiosClient.interceptors.response.use(
 
     // Check if the status is 1 (success) or -1 (failure)
     if (resData.status === 1) {
-      toast.success(resData.message || "Request successful!"); // Success toast
+      // toast.success(resData.message || "Request successful!"); // Success toast
       return resData.data; // Return the data on success
     } else if (resData.status === -1) {
       // Create a custom error for failed responses
