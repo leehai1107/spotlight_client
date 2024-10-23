@@ -19,8 +19,9 @@ export default function CartPage() {
 
   const token = localStorage.getItem("token");
   let userId = null;
-  userId = parsedToken.user_id;
-
+  if (token) {
+    userId = JSON.parse(atob(token.split(".")[1])).user_id;
+  }
   // Use useEffect to handle setting user details on component mount
   useEffect(() => {
     if (token) {
