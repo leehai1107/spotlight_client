@@ -20,12 +20,12 @@ export default function CustomizeCheckoutPage() {
 
   const token = localStorage.getItem("token");
   let userId = null;
+  userId = parsedToken.user_id;
 
   // Use useEffect to handle setting user details on component mount
   useEffect(() => {
     if (token) {
       const parsedToken = JSON.parse(atob(token.split(".")[1]));
-      userId = parsedToken.user_id;
       setFirstName(parsedToken.firstname);
       setAddress(parsedToken.address);
       setLastName(parsedToken.lastname);
