@@ -96,11 +96,7 @@ export default function MainHeader() {
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a
-                      className="nav-link"
-                      aria-current="page"
-                      href="/explored"
-                    >
+                    <a className="nav-link" aria-current="page" href="/items">
                       <strong>TÌM KIẾM SẢN PHẨM</strong>
                     </a>
                   </li>

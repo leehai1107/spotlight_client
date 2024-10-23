@@ -23,6 +23,7 @@ import CustomizeCheckoutPage from "../pages/CustomizeCheckoutPage/CustomizeCheck
 import ViewOrderShopPage from "../pages/ViewOrderShopPage/ViewOrderShopPage";
 import ManagerDashboardPage from "../pages/ManagerDashboardPage/ManagerDashboardPage";
 import ShopOwnerDashboardPage from "../pages/ShopOwnerDashboardPage/ShopOwnerDashboardPage";
+import ItemsPage from "../pages/ItemsPage/ItemsPage";
 
 export default function AppRoutes() {
   const { auth } = useAuth();
@@ -38,6 +39,7 @@ export default function AppRoutes() {
                 <Route path="about_us" element={<AboutUsPage />} />
                 <Route path="customize" element={<ProductCustomizePage />} />
                 <Route path="cart" element={<CartPage />} />
+                <Route path="items" element={<ItemsPage />} />
                 <Route path="items/:itemId" element={<ItemDetailPage />} />
               </Route>
               {/* <BlankLayout /> for signup and signin because no need header or footer */}
@@ -78,6 +80,7 @@ export default function AppRoutes() {
                 <Route path="view_orders" element={<ViewOrderPage />} />
                 <Route path="paymentSuccess" element={<PaymentSuccessPage />} />
                 <Route path="paymentFail" element={<PaymentFailurePage />} />
+                <Route path="items" element={<ItemsPage />} />
                 <Route path="items/:itemId" element={<ItemDetailPage />} />
                 <Route
                   path="customizeCheckout"
