@@ -39,7 +39,7 @@ export default function ItemList() {
               <Item key={item._id} data={item} />
             ))}
             <div className="browse-btn mt-5">
-              <a href="explore_events.html" className="main-btn btn-hover ">
+              <a href="/items" className="main-btn btn-hover ">
                 Xem Thêm
               </a>
             </div>
