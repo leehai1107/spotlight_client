@@ -41,14 +41,16 @@ export default function BuyNowPage() {
       customer_address: address,
       customer_name: `${firstName} ${lastName}`,
       customer_phone: phoneNumber,
-      items: {
-        item_id: buynowItem.item_id,
-        item_name: buynowItem.name,
-        item_price: buynowItem.price,
-        item_quantity: buynowItem.selectedQuantity,
-        color_id: buynowItem.selectedColor.color_id,
-        size_id: buynowItem.selectedSize.size_id,
-      },
+      items: [
+        {
+          item_id: buynowItem.item_id,
+          item_name: buynowItem.name,
+          item_price: buynowItem.price,
+          item_quantity: buynowItem.selectedQuantity,
+          color_id: buynowItem.selectedColor.color_id,
+          size_id: buynowItem.selectedSize.size_id,
+        },
+      ],
       image_url: buynowItem.image_url,
     };
 
