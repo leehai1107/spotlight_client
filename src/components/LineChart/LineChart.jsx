@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import { getRevenueByMonth } from "../../apis/revenue"; // Adjust the path to match your structure
+import { getRevenueByIdAndMonth, getRevenueByMonth } from "../../apis/revenue"; // Adjust the path to match your structure
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -34,7 +34,7 @@ export default function LineChart(isAdmin = false) {
       if (isAdmin.isAdmin) {
         response = await getRevenueByMonth();
       } else {
-        response = await getRevenueByMonth(shop_id);
+        response = await getRevenueByIdAndMonth(shop_id);
       }
 
       if (response) {
