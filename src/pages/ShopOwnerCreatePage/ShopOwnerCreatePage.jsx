@@ -138,6 +138,7 @@ export default function ShopOwnerCreatePage() {
         quantity: newProduct.quantity,
         colors: newProduct.colors.map((color) => ({ color_label: color })), // Format as array of objects
         sizes: newProduct.sizes.map((size) => ({ size_label: size })), // Format as array of objects
+        status: "1",
       };
 
       if (isEditing) {

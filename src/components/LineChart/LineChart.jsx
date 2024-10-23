@@ -24,13 +24,20 @@ ChartJS.register(
 
 export default function LineChart(isAdmin = false) {
   const [chartData, setChartData] = useState(null);
+  const token = localStorage.getItem("token");
+  const shop_id = JSON.parse(atob(token.split(".")[1])).shop_id;
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getRevenueByMonth();
-      console.log("Full Response: ", response);
+      let response;
+
+      if (isAdmin.isAdmin) {
+        response = await getRevenueByMonth();
+      } else {
+        response = await getRevenueByMonth(shop_id);
+      }
+
       if (response) {
-        console.log("API Response: ", response); // Log response to check structure
 
         const weeks = response.weeks.map((week) => week.week);
         let totalRevenue = 0;

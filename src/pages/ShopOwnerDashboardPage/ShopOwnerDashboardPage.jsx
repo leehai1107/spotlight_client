@@ -6,7 +6,6 @@ import "./ShopOwnerDashboardPage.css";
 import {
   getRevenueByIdAndMonth,
   getRevenueByIdAndToday,
-  getRevenueByToday,
 } from "../../apis/revenue";
 import CircleChart from "../../components/CircleChart/CircleChart";
 
@@ -25,7 +24,6 @@ export default function ShopOwnerDashboardPage() {
       const response = await getRevenueByIdAndToday(shop_id);
       const monthResponse = await getRevenueByIdAndMonth(shop_id);
 
-      console.log("Month Total Revenue: ", monthResponse);
 
       // Calculate total revenue for the month
       if (monthResponse && monthResponse.weeks) {

@@ -15,7 +15,7 @@ export const getItemsAPI = async (page = 1, limit = 10) => {
 // API create item
 export const createItemAPI = async (data) => {
   try {
-    const response = await axiosClient.post("/items", data);
+    const response = await axiosClient.post("/items/", data);
     return response;
   } catch (error) {
     console.log(error);
