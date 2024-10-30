@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "./ManagerDashboardPage.css";
 import { getRevenueByMonth, getRevenueByToday } from "../../apis/revenue";
 import CircleChart from "../../components/CircleChart/CircleChart";
+import { getUsersCountAPI } from "../../apis/user";
 
 export default function ManagerDashboardPage() {
   const isMenuMinified = useSelector((state) => state.menu.isMenuMinified);
@@ -12,11 +13,13 @@ export default function ManagerDashboardPage() {
   const [todayOrder, setTodayOrder] = useState(0);
   const [monthRevenue, setMonthRevenue] = useState(0); // State for monthly revenue
   const [totalOrders, setTotalOrders] = useState(0);
+  const [totalUsers, setTotalUsers] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await getRevenueByToday();
       const monthResponse = await getRevenueByMonth();
+      const userCountResponse = await getUsersCountAPI();
 
       console.log("Month Total Revenue: ", monthResponse);
 
@@ -39,6 +42,10 @@ export default function ManagerDashboardPage() {
         setTodayOrder(response.orderCountToday);
       } else {
         console.log("Error: Invalid response data");
+      }
+
+      if (userCountResponse) {
+        setTotalUsers(userCountResponse.totalUsers);
       }
     };
     fetchData();
@@ -88,7 +95,11 @@ export default function ManagerDashboardPage() {
                               />
                               <span className="icon-increasing statistic-box-content_linedown">
                                 Increasing {formatCurrency(monthRevenue)} than
-                                last month
+                                last month*
+                              </span>
+                              <br />
+                              <span className="icon-increasing statistic-box-content_linedown">
+                                (*)5% revenue of all orders.
                               </span>
                             </div>
                           </div>
@@ -120,7 +131,7 @@ export default function ManagerDashboardPage() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-md-3 statistic-box">
+                      <div className="col-md-2 statistic-box">
                         <div className="statistic-box-content">
                           <div className="statistic-box-content_text">
                             <div className="statistic-box-content_description">
@@ -164,7 +175,7 @@ export default function ManagerDashboardPage() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-md-3 statistic-box">
+                      <div className="col-md-2 statistic-box">
                         <div className="statistic-box-content">
                           <div className="statistic-box-content_text">
                             <div className="statistic-box-content_description">
@@ -236,7 +247,7 @@ export default function ManagerDashboardPage() {
                           </div>
                         </div>
                       </div>
-                      <div className="col-md-3 statistic-box">
+                      <div className="col-md-2 statistic-box">
                         <div className="statistic-box-content">
                           <div className="statistic-box-content_text">
                             <div className="statistic-box-content_description">
@@ -285,6 +296,52 @@ export default function ManagerDashboardPage() {
                                   clip-rule="evenodd"
                                   d="M22.7224 14.9836C22.4583 14.6689 21.9483 14.7893 21.853 15.189L20.2195 22.0371C20.1419 22.3628 20.3999 22.6713 20.7342 22.6523L27.7789 22.2531C28.1898 22.2298 28.3982 21.7478 28.1337 21.4325L26.332 19.2853C27.4967 18.8874 28.7318 18.6795 30 18.6795C36.2592 18.6795 41.3333 23.7536 41.3333 30.0128C41.3333 36.2721 36.2592 41.3462 30 41.3462C23.7408 41.3462 18.6667 36.2721 18.6667 30.0128C18.6667 28.9621 18.809 27.9329 19.0864 26.9438L16.5188 26.2236C16.1808 27.4288 16 28.6997 16 30.0128C16 37.7448 22.268 44.0128 30 44.0128C37.732 44.0128 44 37.7448 44 30.0128C44 22.2809 37.732 16.0128 30 16.0128C28.0553 16.0128 26.2031 16.4094 24.52 17.126L22.7224 14.9836Z"
                                   fill="#FF9066"
+                                />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="col-md-2 statistic-box">
+                        <div className="statistic-box-content">
+                          <div className="statistic-box-content_text">
+                            <div className="statistic-box-content_description">
+                              Total Users
+                            </div>
+                            <div>
+                              <p className="statistic-box-content_money">
+                                {totalUsers}
+                              </p>
+                            </div>
+                          </div>
+                          <div className="statistic-box-icon">
+                            <div className="booking-icon">
+                              <svg
+                                width="60"
+                                height="60"
+                                viewBox="0 0 60 60"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  opacity="0.21"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M0 30V37C0 49.7025 10.2975 60 23 60H30H37C49.7025 60 60 49.7025 60 37V30V23C60 10.2975 49.7025 0 37 0H30H23C10.2975 0 0 10.2975 0 23V30Z"
+                                  fill="#8280FF"
+                                />
+                                <path
+                                  opacity="0.587821"
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M20.666 23.3333C20.666 26.2789 23.0538 28.6667 25.9993 28.6667C28.9449 28.6667 31.3327 26.2789 31.3327 23.3333C31.3327 20.3878 28.9449 18 25.9993 18C23.0538 18 20.666 20.3878 20.666 23.3333ZM33.9993 28.6667C33.9993 30.8758 35.7902 32.6667 37.9993 32.6667C40.2085 32.6667 41.9993 30.8758 41.9993 28.6667C41.9993 26.4575 40.2085 24.6667 37.9993 24.6667C35.7902 24.6667 33.9993 26.4575 33.9993 28.6667Z"
+                                  fill="#8280FF"
+                                />
+                                <path
+                                  fill-rule="evenodd"
+                                  clip-rule="evenodd"
+                                  d="M25.9778 31.334C19.6826 31.334 14.5177 34.5693 14.0009 40.9329C13.9727 41.2796 14.6356 42.0007 14.97 42.0007H36.9956C37.9972 42.0007 38.0128 41.1946 37.9972 40.934C37.6065 34.3916 32.3616 31.334 25.9778 31.334ZM45.2746 42.0007L40.1333 42.0007C40.1333 38.9994 39.1417 36.2298 37.4683 34.0015C42.0103 34.0511 45.7189 36.3475 45.998 41.2007C46.0092 41.3961 45.998 42.0007 45.2746 42.0007Z"
+                                  fill="#8280FF"
                                 />
                               </svg>
                             </div>

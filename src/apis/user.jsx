@@ -33,11 +33,21 @@ export const sellerRegisterAPI = async (data) => {
 
 export const getUsersAPI = async (page, limit) => {
   try {
-    const response = await axiosClient.get(`/users?page=${page}&limit=${limit}`);
+    const response = await axiosClient.get(
+      `/users?page=${page}&limit=${limit}`
+    );
     return response;
   } catch (error) {
     console.log(error);
   }
-}
+};
 
-
+// API get number of users
+export const getUsersCountAPI = async () => {
+  try {
+    const response = await axiosClient.get(`/getTotalUsers`);
+    return response;
+  } catch (error) {
+    console.log(error);
+  }
+};
