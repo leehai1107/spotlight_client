@@ -17,39 +17,73 @@ export default function ManagerDashboardPage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getRevenueByToday();
-      const monthResponse = await getRevenueByMonth();
-      const userCountResponse = await getUsersCountAPI();
+      try {
+        const responseToday = await getRevenueByToday();
+        const userCountResponse = await getUsersCountAPI();
 
-      console.log("Month Total Revenue: ", monthResponse);
+        // Fetch monthly revenue data for October and November
+        const monthResponseOctober = await getRevenueByMonth(2024, 10);
+        const monthResponseNovember = await getRevenueByMonth(2024, 11);
 
-      // Calculate total revenue for the month
-      if (monthResponse && monthResponse.weeks) {
-        const totalMonthRevenue = monthResponse.weeks.reduce((acc, week) => {
-          return acc + week.totalRevenue * (5 / 100);
-        }, 0);
-        setMonthRevenue(totalMonthRevenue); // Update state with calculated total revenue
-      }
-      if (monthResponse && monthResponse.weeks) {
-        const totalMonthOrders = monthResponse.weeks.reduce((acc, week) => {
-          return acc + week.orderCount;
-        }, 0);
-        setTotalOrders(totalMonthOrders); // Update state with calculated total revenue
-      }
+        // Sum up revenues and orders for October and November
+        const totalRevenueOctober =
+          monthResponseOctober?.weeks?.reduce(
+            (acc, week) => acc + week.totalRevenue,
+            0
+          ) || 0;
+        const totalOrdersOctober =
+          monthResponseOctober?.weeks?.reduce(
+            (acc, week) => acc + week.orderCount,
+            0
+          ) || 0;
 
-      if (response) {
-        setTodayRevenue(response.totalRevenueToday * (5 / 100) || 0);
-        setTodayOrder(response.orderCountToday);
-      } else {
-        console.log("Error: Invalid response data");
-      }
+        const totalRevenueNovember =
+          monthResponseNovember?.weeks?.reduce(
+            (acc, week) => acc + week.totalRevenue,
+            0
+          ) || 0;
+        const totalOrdersNovember =
+          monthResponseNovember?.weeks?.reduce(
+            (acc, week) => acc + week.orderCount,
+            0
+          ) || 0;
 
-      if (userCountResponse) {
-        setTotalUsers(userCountResponse.totalUsers);
+        console.log(
+          totalRevenueOctober,
+          totalOrdersOctober,
+          totalRevenueNovember,
+          totalOrdersNovember
+        );
+
+        // Calculate combined totals for the two months
+        const combinedMonthRevenue =
+          (totalRevenueOctober + totalRevenueNovember) * (10 / 100);
+        const combinedTotalOrders = totalOrdersOctober + totalOrdersNovember;
+
+        // Update state with combined values
+        setMonthRevenue(combinedMonthRevenue);
+        setTotalOrders(combinedTotalOrders);
+
+        // Update state for today's revenue and order count
+        if (responseToday) {
+          setTodayRevenue(responseToday.totalRevenueToday * (10 / 100) || 0);
+          setTodayOrder(responseToday.orderCountToday);
+        } else {
+          console.log("Error: Invalid response data for today’s revenue.");
+        }
+
+        // Update state for total users
+        if (userCountResponse) {
+          setTotalUsers(userCountResponse.totalUsers);
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
     };
+
     fetchData();
   }, []);
+
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat("vi-VN", {
       style: "currency",
@@ -99,7 +133,7 @@ export default function ManagerDashboardPage() {
                               </span>
                               <br />
                               <span className="icon-increasing statistic-box-content_linedown">
-                                (*)5% revenue of all orders.
+                                (*)10% revenue of all orders.
                               </span>
                             </div>
                           </div>
